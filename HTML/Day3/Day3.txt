@@ -1,0 +1,125 @@
+<!--
+Day 3: HTML Basics - Full Stack Web Development
+
+Today we are learning:
+- Headings
+- Paragraphs
+- Preformatted text
+- Links
+- Empty elements (like <br> and <hr>)
+- Case sensitivity in HTML
+-->
+
+<!-- ==================== Section 1: HTML Headings ==================== -->
+<!--
+Definition:
+HTML headings are used to define titles or subtitles on a webpage.
+<h1> defines the most important heading, and <h6> the least important.
+-->
+
+<h1>This is Heading 1</h1>
+<h2>This is Heading 2</h2>
+<h3>This is Heading 3</h3>
+<h4>This is Heading 4</h4>
+<h5>This is Heading 5</h5>
+<h6>This is Heading 6</h6>
+
+<!--
+✅ Task:
+Create a webpage that displays all six heading levels with your name and course title.
+-->
+
+
+<!-- ==================== Section 2: HTML Paragraphs ==================== -->
+<!--
+Definition:
+Paragraphs in HTML are defined using the <p> tag. They help separate blocks of text.
+-->
+
+<p>Hello! My name is John Doe.</p>
+<p>I am learning Full Stack Web Development to become a skilled web developer.</p>
+
+<!--
+✅ Task:
+Write a short self-introduction using 2 paragraphs.
+-->
+
+
+<!-- ==================== Section 3: The <pre> Tag ==================== -->
+<!--
+Definition:
+The <pre> tag preserves both spaces and line breaks. 
+Useful for poems, quotes, or code snippets.
+-->
+
+<pre>
+  Roses are red,
+    Violets are blue,
+  I'm learning HTML,
+    And so are you.
+</pre>
+
+<!--
+✅ Task:
+Use <pre> to write a short poem or quote with custom spacing.
+-->
+
+
+<!-- ==================== Section 4: HTML Links ==================== -->
+<!--
+Definition:
+Links are created using the <a> tag.
+The destination URL is set using the href attribute.
+-->
+
+<a href="https://www.google.com">Google</a><br>
+<a href="https://www.youtube.com">YouTube</a><br>
+<a href="https://www.w3schools.com">W3Schools</a><br>
+
+<!--
+✅ Task:
+Create a list of 3 useful websites using <a> links.
+-->
+
+
+<!-- ==================== Section 5: Empty Elements ==================== -->
+<!--
+Definition:
+Empty elements have no closing tag or content.
+Examples include <br> for line breaks and <hr> for horizontal lines.
+-->
+
+<p>This is a paragraph with a<br>line break inside it.</p>
+<hr>
+
+<!--
+✅ Task:
+Write a paragraph, break a line using <br>, and separate two sections using <hr>.
+-->
+
+
+<!-- ==================== Section 6: HTML is Not Case Sensitive ==================== -->
+<!--
+Definition:
+HTML tags are not case-sensitive. <P> and <p> work the same, 
+but lowercase is standard practice in modern HTML.
+-->
+
+<P>This is a paragraph using capital P.</P>
+<p>This is a paragraph using lowercase p.</p>
+
+
+<!-- ==================== Final Task: Day 3 Assignment ==================== -->
+<!--
+✅ Final Task:
+Create a complete HTML page including:
+
+1. Your name in <h1>
+2. Course title in <h2>
+3. Two paragraphs about your goals
+4. Three links to favorite websites
+5. Use <br> and <hr> somewhere
+6. A <pre> section with a quote or poem
+
+Save the file as 'day3.html' and open it in your browser.
+-->
