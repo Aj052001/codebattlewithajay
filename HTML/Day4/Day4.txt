@@ -1,0 +1,77 @@
+<!-- ==================== Section 7: HTML Comments ==================== -->
+<!-- 
+Definition:
+HTML comments begin  with <!-- and end with -->.
+They are not shown in the browser and are useful for adding notes.
+-->
+
+<!-- This is a comment. It will not appear on the page. -->
+
+<!--
+✅ Task:
+Add a comment above each major section in your code to describe what it does.
+-->
+
+
+<!-- ==================== Section 8: HTML Images ==================== -->
+<!-- 
+Definition:
+Images are added using the <img> tag.
+It is an empty element (no closing tag) and uses the 'src' and 'alt' attributes.
+
+src: path to the image
+alt: text shown if image can't load
+-->
+
+<img src="https://www.w3schools.com/images/w3schools_green.jpg" alt="W3Schools Logo" width="200">
+
+<!--
+✅ Task:
+Add one image to your page using the <img> tag.
+Try both an online image (absolute link) and one from your own project folder (relative link).
+-->
+
+
+<!-- ==================== Section 9: HTML Attributes ==================== -->
+<!-- 
+Definition:
+Attributes provide additional information about elements.
+They are written inside the opening tag. Example: <a href="url">
+
+Common attributes:
+- href (for links)
+- src (for images)
+- alt (alternative text for images)
+- title (tooltip text)
+- width, height
+-->
+
+<a href="https://example.com" title="Visit Example">Hover me to see title</a><br>
+
+<!--
+✅ Task:
+Use at least 3 attributes in one or more elements and observe their effect.
+-->
+
+
+<!-- ==================== Section 10: Relative vs Absolute Links ==================== -->
+<!-- 
+Definition:
+Absolute Link: full URL to a website or image (starts with http:// or https://)
+Relative Link: path relative to your current file or folder (like ./images/pic.jpg)
+
+Examples:
+-->
+
+<!-- Absolute Link -->
+<a href="https://www.mozilla.org" target="_blank">Visit Mozilla (Absolute)</a><br>
+
+<!-- Relative Link (make sure file exists in the folder) -->
+<a href="./about.html">Go to About Page (Relative)</a><br>
+
+<!--
+✅ Task:
+Create one relative link to a local file and one absolute link to an external website.
+Make sure you have the local file created in your folder.
+-->
+
