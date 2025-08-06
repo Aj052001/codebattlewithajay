@@ -1,0 +1,66 @@
+<!-- ==================== Section 11: HTML Favicon ==================== -->
+<!-- 
+Definition:
+A favicon is the small icon shown in the browser tab next to the title.
+It is added using the <link> tag inside the <head> section.
+-->
+
+<!-- Example using an online image (absolute link) -->
+<!-- Add this inside the <head> section -->
+<link rel="icon" href="https://www.w3schools.com/favicon.ico" type="image/x-icon">
+
+<!-- Example using a local file (relative link) -->
+<!-- Place a favicon.ico or favicon.png in your project folder -->
+<!-- <link rel="icon" href="./favicon.ico" type="image/x-icon"> -->
+
+<!-- 
+✅ Task:
+Add a favicon to your HTML file using an online link or a local file.
+-->
+
+
+<!-- ==================== Section 12: HTML Title ==================== -->
+<!-- 
+Definition:
+The <title> tag defines the title of the web page.
+It appears in the browser tab and helps identify the page.
+It is placed inside the <head> section.
+-->
+
+<!-- Example: -->
+<title>My HTML Practice Page</title>
+
+<!-- 
+✅ Task:
+Change the <title> of your page to reflect the purpose of your website.
+Try viewing it in the browser tab.
+-->
+
+
+<!-- ==================== Section 13: HTML Text Formatting ==================== -->
+<!-- 
+Definition:
+HTML provides several tags to format text on a web page.
+These tags help add emphasis, boldness, italics, underline, small text, and more.
+-->
+
+<!-- Common Formatting Tags:
+<b>      - Bold text (no emphasis)
+<strong> - Important text (semantic bold)
+<i>      - Italic text (no emphasis)
+<em>     - Emphasized text (semantic italic)
+<u>      - Underlined text
+<mark>   - Highlighted text
+<small>  - Smaller text
+<del>    - Deleted (strikethrough) text
+<ins>    - Inserted (underlined) text
+<sub>    - Subscript text (e.g., H₂O)
+<sup>    - Superscript text (e.g., X²)
+-->
+
+
+
+<!-- 
+✅ Task:
+Write a paragraph using at least 5 different formatting tags to style words differently.
+-->
