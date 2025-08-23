@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day - 11 HTML Form Part - 2</title>
+</head>
+
+<body>
+    <h3>Day - 11 HTML Form Part - 2</h3>
+    <form action="#" method="post" target="_blank"> <label for="name">Name : </label> <input type="name" id="name"
+            name="name" placeholder="Enter your name" required> <br> <br> <label for="Mobile">Mobile: </label> <input
+            type="tel" id="Mobile" name="Mobile" placeholder="Enter your Mobile" required pattern="[0-9]{10}"
+            title="Enter 10 digits only"> <br> <br> <label for="email">Email : </label> <input type="email" id="email"
+            name="email" placeholder="Enter your email" required> <br>
+        <p>Gender : </p> <input type="radio" id="male" name="Gender"> <label for="male">Male</label> <br> <input
+            type="radio" id="female" name="Gender"> <label for="female">Female</label> <br>
+        <p>Hobbies : </p> <input type="checkbox" id="Cricket" name="Hobbies"> <label for="Cricket">Cricket</label><br>
+        <input type="checkbox" id="Football" name="Hobbies"> <label for="Football">Football</label> <br> <input
+            type="checkbox" id="Music" name="Hobbies"> <label for="Music">Music</label> <br> <br> <label
+            for="resume">Upload resume : </label> <input type="file" id="resume"> <br><br> <input type="submit"
+            value="submit"> <input type="reset" value="reset">
+    </form>
+</body>
+
+</html>
