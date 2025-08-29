@@ -1,6 +1,16 @@
-h1{
-    /* background-color: red; */
-    /* background-color: rgb(123, 234, 34); */
-    /* background-color: #ff9933; */
-    background-color: hsl(130 , 44%, 54%);
+.box{
+    /* background-color: blue; */
+    /* background-color: rgb(12,16,34); */
+    /* background-color: #00ff00;   */
+    /* background-color: hsl(130, 40%, 60%); */
+    /* height: 100vh; */
+    
+    
+
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTc9APxkj0xClmrU3PpMZglHQkx446nQPG6lA&s");
+    background-repeat: no-repeat;
+    /* background-size: cover; */
+    /* background-attachment: fixed; */
+    background-position: left;
+
 }

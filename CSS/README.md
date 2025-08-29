@@ -1,22 +1,22 @@
-Day 1: What is CSS & How It Works?
+<!-- Day 1: What is CSS & How It Works?
    - Introduction to CSS
    - How Browsers Render CSS
-   - Why We Use CSS
+   - Why We Use CSS -->
 
-Day 2: How to Add CSS to HTML, Syntax & Debugging
+<!-- Day 2: How to Add CSS to HTML, Syntax & Debugging
    - Inline, Internal, External CSS
    - CSS Rules, Properties, Values
    - Writing Clean CSS
    - Comments & Common Errors
-   - Debugging CSS
+   - Debugging CSS -->
 
-Day 3: CSS Selectors (Basic & Advanced)
+<!-- Day 3: CSS Selectors (Basic & Advanced)
    - Universal, Type, Class, ID
    - Grouping
    - Combinators (>, +, ~, space)
    - Attribute Selectors
    - Pseudo-classes (:hover, :focus)
-   - Pseudo-elements (::before, ::after)
+   - Pseudo-elements (::before, ::after) -->
 
 Day 4: CSS Colors & Backgrounds
    - Color Formats (HEX, RGB, HSL)
