@@ -1,0 +1,19 @@
+*{
+    margin: 0;padding: 0;
+}
+
+div{
+    /* background-color: red; */
+    height: 100vh;
+
+
+    /* background-image: linear-gradient( green 5%, red 10%, blue 5%, yellow); */
+    /* background-image: radial-gradient(circle, green, yellow , red, blue); */
+
+    background-image: conic-gradient(from 180deg ,green 5%, yellow 10%, blue);
+}
+
+
+h1{
+    background-image: linear-gradient(green, blue, yellow , purple);
+}
