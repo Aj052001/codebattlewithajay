@@ -1,0 +1,21 @@
+p{
+    color:blue;
+    text-align: justify;
+    text-align-last: justify;
+    /* text-decoration-line: line-through;
+    text-decoration-color: green;
+    text-decoration-style: dashed; */
+    /* text-decoration-thickness: 10px; */
+
+    text-transform: capitalize;
+
+    text-indent: 50px;
+    /* letter-spacing: 10px; */
+    line-height: 32px;
+    word-spacing: 10px;
+    white-space: nowrap;
+}
+
+a{
+    text-decoration: none;
+}
