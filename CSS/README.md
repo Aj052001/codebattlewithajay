@@ -76,15 +76,17 @@ Day 16: Borders, Shadows & Opacity
     - box-shadow, text-shadow
     - opacity vs rgba()
 
-Day 17: CSS Transitions
+Day 17: CSS Transforms
+    - transform (scale, rotate, translate)
+    - transform-origin
+    - Using transform with transitions
+
+Day 18: CSS Transitions
     - transition property
     - duration, timing functions
     - hover animations
 
-Day 18: CSS Transforms
-    - transform (scale, rotate, translate)
-    - transform-origin
-    - Using transform with transitions
+
 
 Day 19: CSS Animations
     - @keyframes animations

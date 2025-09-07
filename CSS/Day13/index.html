@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         .box{
+            border: 1px solid black;
+            /* display:inline; */
+            display: inline-block;
+            height: 100px;
+            width: 190px;
+            margin: 10px;
+            /* overflow: auto; */
+            overflow-x: auto;
+            overflow-y: auto;
+            display: none;
+         }
+         
+         .parent:hover .box{
+                        display: block;
+         }
+    </style>
+</head>
+<body>
+
+    <h1>Display</h1>
+
+    <div class="parent">
+        <h1>hide</h1>
+        <div class="box">Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis nisi porro quisquam vero, officia quas molestias ipsam necessitatibus atque explicabo, numquam blanditiis placeat corrupti commodi voluptatum architecto iste hic labore iusto soluta repellendus veritatis.</div>
+    </div>
+
+    
+
+
+
+    
+</body>
+</html>
