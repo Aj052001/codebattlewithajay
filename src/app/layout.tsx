@@ -10,24 +10,24 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "CodeBattle With Ajay - Master DevOps, Cloud & Programming",
+  title: "CodeBattle With Ajay - Master Dsa, FullStack Developement & Devops",
   description: "Learn DevOps, Cloud Computing, and Programming through practical tutorials and real-world projects. Free courses on Docker, Kubernetes, AWS, Ansible, and more.",
   keywords: ["DevOps", "Cloud Computing", "Programming", "Docker", "Kubernetes", "AWS", "Ansible", "Free Courses", "Tutorials"],
   authors: [{ name: "CodeBattle" }],
   creator: "CodeBattle",
-  publisher: "CodeBattle With Ajay",
+  publisher: "CodeBattle Learning",
   robots: "index, follow",
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://codebattle-learning.com",
-    title: "CodeBattle With Ajay - Master DevOps, Cloud & Programming",
+    url: "https://codebattlewithajay.vercel.com",
+    title: "CodeBattle With Ajay - Master Dsa, FullStack Developement & Devops",
     description: "Learn DevOps, Cloud Computing, and Programming through practical tutorials and real-world projects.",
-    siteName: "CodeBattle With Ajay",
+    siteName: "CodeBattle Learning",
   },
   twitter: {
     card: "summary_large_image",
-    title: "CodeBattle With Ajay - Master DevOps, Cloud & Programming",
+    title: "CodeBattle With Ajay - Master Dsa, FullStack Developement & Devops",
     description: "Learn DevOps, Cloud Computing, and Programming through practical tutorials and real-world projects.",
     creator: "@codebattle",
   },

@@ -7,16 +7,16 @@ export const generateSEO = (
   path?: string,
   image?: string
 ): SEOProps => {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://codebattle-learning.com';
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://codebattlewithajay.vercel.com';
   const canonical = path ? `${baseUrl}${path}` : baseUrl;
   const defaultImage = `${baseUrl}/images/og-default.jpg`;
 
   return {
-    title: `${title} | CodeBattle With Ajay`,
+    title: `${title} | CodeBattle Learning`,
     description,
     canonical,
     openGraph: {
-      title: `${title} | CodeBattle With Ajay`,
+      title: `${title} | CodeBattle Learning`,
       description,
       image: image || defaultImage,
       url: canonical,
@@ -33,8 +33,8 @@ export const generateCourseStructuredData = (course: { title: string; descriptio
     description: course.description,
     provider: {
       '@type': 'Organization',
-      name: 'CodeBattle With Ajay',
-      url: 'https://codebattle-learning.com',
+      name: 'CodeBattle Learning',
+      url: 'https://codebattlewithajay.vercel.com',
     },
     courseMode: 'online',
     educationalLevel: course.difficulty,
@@ -58,11 +58,11 @@ export const generateBlogStructuredData = (blog: { title: string; description: s
     datePublished: blog.publishedAt,
     publisher: {
       '@type': 'Organization',
-      name: 'CodeBattle With Ajay',
+      name: 'CodeBattle Learning',
     },
     mainEntityOfPage: {
       '@type': 'WebPage',
-      '@id': `https://codebattle-learning.com/blog/${blog.slug}`,
+      '@id': `https://codebattlewithajay.vercel.com/blog/${blog.slug}`,
     },
   };
 };
@@ -141,6 +141,6 @@ export const getRelativeUrl = (path: string): string => {
 };
 
 export const getAbsoluteUrl = (path: string): string => {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://codebattle-learning.com';
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://codebattlewithajay.vercel.app';
   return `${baseUrl}${getRelativeUrl(path)}`;
 };

@@ -215,7 +215,7 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {latestBlogs.map((blog) => (
               <article key={blog.id} className="bg-white rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-200 hover:border-blue-300 overflow-hidden group">
-                <Link href={`/blog/`}>
+                <Link href={`/blog/${blog.slug}`}>
                   <div className="h-48 bg-gradient-to-br from-blue-100 to-purple-100 flex items-center justify-center">
                     <BookOpen className="w-16 h-16 text-blue-600 opacity-50" />
                   </div>

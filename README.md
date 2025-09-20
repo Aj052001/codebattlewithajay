@@ -1,4 +1,4 @@
-# CodeBattle With Ajay Platform
+# CodeBattle Learning Platform
 
 A modern, responsive learning platform built with Next.js 15, TypeScript, and Tailwind CSS. Perfect for creating educational content with course management, YouTube integration, and blog functionality.
 

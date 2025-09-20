@@ -62,3 +62,17 @@ export interface SEOProps {
     url: string;
   };
 }
+
+export type AdPlacement = 'top' | 'sidebar' | 'inline';
+
+export interface AdOffer {
+  id: string;
+  title: string;
+  description: string;
+  ctaText: string;
+  ctaUrl: string;
+  image?: string;
+  badge?: string;
+  placement: AdPlacement[];
+  isEnabled: boolean;
+}

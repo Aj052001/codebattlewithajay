@@ -16,6 +16,7 @@ export default function AboutPage() {
     { label: 'YouTube Subscribers', value: youtubeChannelData.subscriberCount, icon: Youtube },
     { label: 'Hours of Content', value: '20+', icon: Award },
   ];
+ 
 
   const values = [
     {
