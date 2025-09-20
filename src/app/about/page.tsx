@@ -4,17 +4,17 @@ import { youtubeChannelData } from '@/data/courses';
 import { generateSEO } from '@/utils';
 
 export const metadata = generateSEO(
-  'About CodeBattle Learning',
-  'Learn about CodeBattle Learning platform - your gateway to mastering DevOps, Cloud Computing, and Programming through practical tutorials and real-world projects.',
+  'About CodeBattle With Ajay',
+  'Empowering developers worldwide with practical skills in Fullstack Development, Python, DSA and Devops through comprehensive tutorials and real-world projects.',
   '/about'
 );
 
 export default function AboutPage() {
   const stats = [
-    { label: 'Students Worldwide', value: '50K+', icon: Users },
-    { label: 'Free Courses', value: '25+', icon: BookOpen },
+    { label: 'Students Worldwide', value: '50+', icon: Users },
+    { label: 'Free Courses', value: '2+', icon: BookOpen },
     { label: 'YouTube Subscribers', value: youtubeChannelData.subscriberCount, icon: Youtube },
-    { label: 'Hours of Content', value: '200+', icon: Award },
+    { label: 'Hours of Content', value: '20+', icon: Award },
   ];
 
   const values = [
@@ -135,33 +135,16 @@ export default function AboutPage() {
               </h2>
               <div className="prose prose-lg max-w-none text-gray-600">
                 <p className="mb-6">
-                  CodeBattle Learning was born from a simple observation: there&apos;s a significant
-                  gap between what students learn in traditional educational settings and what 
-                  they need to know to succeed in modern software development roles.
+                 CodeBattle Learning was founded to bridge the gap between traditional education and the practical skills required for modern software development. As experienced developers and DevOps engineers, we noticed that many talented learners lacked hands-on resources to master real-world tools and practices. That’s why we provide affordable, practical courses designed by industry practitioners, helping students worldwide gain the skills, confidence, and experience they need to build software, advance their careers, and achieve their dreams.
                 </p>
-                <p className="mb-6">
-                  As experienced developers and DevOps engineers, we noticed that many talented 
-                  individuals struggled to find practical, hands-on resources that would help 
-                  them master the tools and practices used in real-world environments.
-                </p>
-                <p className="mb-6">
-                  That&apos;s why we created CodeBattle Learning - to provide comprehensive, practical
-                  education that prepares developers for the challenges they&apos;ll face in their careers.
-                  Our courses are designed by practitioners who use these technologies daily in 
-                  production environments.
-                </p>
-                <p>
-                  Today, we&apos;re proud to serve thousands of learners worldwide through our free
-                  courses and YouTube channel, helping them build the skills they need to advance 
-                  their careers and create amazing software solutions.
-                </p>
+               
               </div>
             </div>
           </div>
         </section>
 
         {/* Team Section */}
-        <section className="mb-20">
+        {/* <section className="mb-20">
           <div className="text-center mb-12">
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
               Meet the Team
@@ -173,12 +156,12 @@ export default function AboutPage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Placeholder team members - you can customize these */}
+            
             <div className="bg-white p-8 rounded-xl shadow-sm border border-gray-200 text-center hover:shadow-lg transition-all duration-300">
               <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full mx-auto mb-4 flex items-center justify-center text-white text-2xl font-bold">
                 CB
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-2">CodeBattle Team</h3>
+              <h3 className="text-xl font-bold text-gray-900 mb-2">Ajay Singh</h3>
               <p className="text-gray-600 mb-4">Founder & Lead Instructor</p>
               <p className="text-sm text-gray-500">
                 Passionate about making complex technologies accessible through practical, 
@@ -210,7 +193,7 @@ export default function AboutPage() {
               </p>
             </div>
           </div>
-        </section>
+        </section> */}
 
         {/* CTA Section */}
         <section className="text-center">

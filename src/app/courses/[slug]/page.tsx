@@ -21,7 +21,7 @@ export async function generateMetadata({ params }: CoursePageProps) {
   
   if (!course) {
     return {
-      title: 'Course Not Found | CodeBattle Learning',
+      title: 'Course Not Found | CodeBattle With Ajay',
     };
   }
 

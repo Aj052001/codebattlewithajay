@@ -12,11 +12,11 @@ export const generateSEO = (
   const defaultImage = `${baseUrl}/images/og-default.jpg`;
 
   return {
-    title: `${title} | CodeBattle Learning`,
+    title: `${title} | CodeBattle With Ajay`,
     description,
     canonical,
     openGraph: {
-      title: `${title} | CodeBattle Learning`,
+      title: `${title} | CodeBattle With Ajay`,
       description,
       image: image || defaultImage,
       url: canonical,
@@ -33,7 +33,7 @@ export const generateCourseStructuredData = (course: { title: string; descriptio
     description: course.description,
     provider: {
       '@type': 'Organization',
-      name: 'CodeBattle Learning',
+      name: 'CodeBattle With Ajay',
       url: 'https://codebattle-learning.com',
     },
     courseMode: 'online',
@@ -58,7 +58,7 @@ export const generateBlogStructuredData = (blog: { title: string; description: s
     datePublished: blog.publishedAt,
     publisher: {
       '@type': 'Organization',
-      name: 'CodeBattle Learning',
+      name: 'CodeBattle With Ajay',
     },
     mainEntityOfPage: {
       '@type': 'WebPage',

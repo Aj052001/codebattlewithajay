@@ -19,52 +19,7 @@ const CourseCard = ({ course, className = '' }: CourseCardProps) => {
       <Link href={`/courses/${course.slug}`}>
         <div className="relative">
           {/* Course Thumbnail */}
-          <div className="relative h-48 bg-gradient-to-br from-gray-100 to-gray-200 rounded-t-xl overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-purple-500/20 flex items-center justify-center">
-              <div className="text-6xl opacity-20">
-                {course.category === 'DevOps & Automation' && '⚙️'}
-                {course.category === 'Cloud Computing' && '☁️'}
-                {course.category === 'Containerization' && '📦'}
-                {course.category === 'Programming & Scripting' && '💻'}
-              </div>
-            </div>
-            
-            {/* Badges */}
-            <div className="absolute top-3 left-3 flex flex-col gap-2">
-              {course.isNew && (
-                <span className="bg-blue-600 text-white text-xs font-medium px-2 py-1 rounded-full">
-                  New
-                </span>
-              )}
-              {course.featured && (
-                <span className="bg-yellow-500 text-white text-xs font-medium px-2 py-1 rounded-full flex items-center gap-1">
-                  <Star className="w-3 h-3" />
-                  Featured
-                </span>
-              )}
-            </div>
-
-            {/* Price/Free Badge */}
-            <div className="absolute top-3 right-3">
-              {course.isPaid ? (
-                <span className="bg-purple-600 text-white text-xs font-medium px-2 py-1 rounded-full flex items-center gap-1">
-                  <Crown className="w-3 h-3" />
-                  Paid
-                </span>
-              ) : (
-                <span className="bg-green-600 text-white text-xs font-medium px-2 py-1 rounded-full">
-                  Free
-                </span>
-              )}
-            </div>
-
-            {/* YouTube Play Button Overlay */}
-            <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300 flex items-center justify-center">
-              <div className="bg-red-600 text-white p-3 rounded-full opacity-0 group-hover:opacity-100 transform scale-75 group-hover:scale-100 transition-all duration-300">
-                <Youtube className="w-6 h-6" />
-              </div>
-            </div>
-          </div>
+          
 
           {/* Course Content */}
           <div className="p-6">
@@ -106,24 +61,9 @@ const CourseCard = ({ course, className = '' }: CourseCardProps) => {
               )}
             </div>
 
-            {/* Footer */}
-            <div className="flex items-center justify-between pt-4 border-t border-gray-100">
-              <div className="flex items-center text-gray-500 text-sm">
-                <Users className="w-4 h-4 mr-1" />
-                <span>1K+ students</span>
-              </div>
-              
-              <div className="flex items-center space-x-2">
-                <div className="flex items-center text-yellow-500">
-                  <Star className="w-4 h-4 fill-current" />
-                  <span className="text-sm text-gray-600 ml-1">4.8</span>
-                </div>
-                <span className="text-blue-600 text-sm font-medium group-hover:underline">
-                  Learn More →
-                </span>
-              </div>
-            </div>
+          
           </div>
+          
         </div>
       </Link>
     </div>

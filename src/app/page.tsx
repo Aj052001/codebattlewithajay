@@ -20,22 +20,23 @@ export default function Home() {
             </div>
 
             {/* Main Heading */}
-            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold text-gray-900 mb-6 leading-tight">
-              Learn, Create,{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
-                Innovate
-              </span>
-            </h1>
+          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold text-gray-900 mb-6 leading-tight">
+  Welcome to{' '}
+  <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
+    CodeBattle with Ajay 
+  </span>
+
+</h1>
+
 
             {/* Subheading */}
             <p className="text-xl sm:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">
-              Your Gateway to <strong>DevOps</strong>, <strong>Cloud Computing</strong>, and <strong>Programming</strong> Mastery
+              Learn <strong>DSA</strong>, Build  <strong>Projects</strong>, and Grow as a  <strong>Full-Stack Developer</strong>
             </p>
 
             {/* Description */}
             <p className="text-lg text-gray-500 mb-10 max-w-2xl mx-auto">
-              Empowering you with the language of code and tools. Master industry-leading technologies 
-              through practical tutorials and real-world projects.
+              Code smarter. Build faster. Master technologies with practical tutorials and real-world projects.
             </p>
 
             {/* CTA Buttons */}
@@ -62,7 +63,7 @@ export default function Home() {
             </div>
 
             {/* Stats */}
-            <div className="flex flex-col sm:flex-row gap-8 justify-center items-center mt-12 pt-8 border-t border-gray-200">
+            {/* <div className="flex flex-col sm:flex-row gap-8 justify-center items-center mt-12 pt-8 border-t border-gray-200">
               <div className="text-center">
                 <div className="text-2xl font-bold text-gray-900">{youtubeChannelData.videoCount}</div>
                 <div className="text-gray-600">Free Tutorials</div>
@@ -75,7 +76,7 @@ export default function Home() {
                 <div className="text-2xl font-bold text-gray-900">4.9/5</div>
                 <div className="text-gray-600">Average Rating</div>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
 
@@ -93,11 +94,10 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-              Uncover the Magic of Programming Languages and Tools
+              Level Up Your Coding Skills
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Choose from our comprehensive collection of courses designed to take you from beginner to expert
-            </p>
+              ick from our practical courses and become confident in programming languages and tools            </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -159,7 +159,7 @@ export default function Home() {
           <div className="text-center text-white">
             <Youtube className="w-16 h-16 mx-auto mb-6 opacity-90" />
             <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-              Subscribe to CodeBattle on YouTube
+              Subscribe to codebattle with ajay on YouTube
             </h2>
             <p className="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
               Get access to free video tutorials, live coding sessions, and behind-the-scenes content. 
@@ -215,7 +215,7 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {latestBlogs.map((blog) => (
               <article key={blog.id} className="bg-white rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-200 hover:border-blue-300 overflow-hidden group">
-                <Link href={`/blog/${blog.slug}`}>
+                <Link href={`/blog/`}>
                   <div className="h-48 bg-gradient-to-br from-blue-100 to-purple-100 flex items-center justify-center">
                     <BookOpen className="w-16 h-16 text-blue-600 opacity-50" />
                   </div>

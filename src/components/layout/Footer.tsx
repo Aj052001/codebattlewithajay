@@ -28,19 +28,19 @@ const Footer = () => {
     },
     {
       name: 'Twitter',
-      href: 'https://twitter.com/codebattle', // Replace with your Twitter
+      href: 'https://twitter.com/codebattlewithajay', // Replace with your Twitter
       icon: Twitter,
       color: 'hover:text-blue-400',
     },
     {
       name: 'GitHub',
-      href: 'https://github.com/codebattle', // Replace with your GitHub
+      href: 'https://github.com/Aj052001/', // Replace with your GitHub
       icon: Github,
       color: 'hover:text-gray-900',
     },
     {
       name: 'LinkedIn',
-      href: 'https://linkedin.com/company/codebattle', // Replace with your LinkedIn
+      href: 'https://www.linkedin.com/in/ajaysingh87/', // Replace with your LinkedIn
       icon: Linkedin,
       color: 'hover:text-blue-600',
     },
@@ -58,13 +58,12 @@ const Footer = () => {
                   <BookOpen className="w-6 h-6 text-white" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-gray-900">CodeBattle Learning</h3>
+                  <h3 className="text-xl font-bold text-gray-900">CodeBattle with ajay</h3>
                   <p className="text-sm text-gray-600">Your Gateway to Programming Mastery</p>
                 </div>
               </div>
               <p className="text-gray-600 mb-6 max-w-md">
-                Learn DevOps, Cloud Computing, and Programming through practical tutorials and 
-                real-world projects. Master the skills that matter in today&apos;s tech industry.
+               Learn DSA, Data Analytics, Fullstack Development, DevOps, Cloud Computing, and Programming through practical tutorials and real-world projects. Master the skills that matter in tech industry.
               </p>
               
               {/* Social Media Links */}
@@ -104,36 +103,45 @@ const Footer = () => {
             </div>
 
             {/* Categories */}
-            <div>
-              <h3 className="text-sm font-semibold text-gray-900 tracking-wider uppercase mb-4">
-                Categories
-              </h3>
-              <ul className="space-y-2">
-                {categories.map((category) => (
-                  <li key={category.name}>
-                    <Link
-                      href={category.href}
-                      className="text-gray-600 hover:text-blue-600 transition-colors duration-200"
-                    >
-                      {category.name}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
+           <div>
+  <h3 className="text-sm font-semibold text-gray-900 tracking-wider uppercase mb-4">
+    Contact Details
+  </h3>
+  <ul className="space-y-2">
+    <li>
+      <span className="text-gray-600">Mobile: </span>
+      <a href="tel:+919079676928" className="text-blue-600 hover:underline">
+        +91 9079676928
+      </a>
+    </li>
+    <li>
+      <span className="text-gray-600">Email: </span>
+      <a href="mailto:ajays879687@gmail.com" className="text-blue-600 hover:underline">
+        ajays879687@gmail.com
+      </a>
+    </li>
+    <li>
+      <span className="text-gray-600">Instagram: </span>
+      <a href="https://instagram.com/codebattlewithajay" target="_blank" className="text-blue-600 hover:underline">
+        codebattlewithajay
+      </a>
+    </li>
+  </ul>
+</div>
+
           </div>
         </div>
 
         {/* Bottom section */}
         <div className="border-t border-gray-200 py-6">
-          <div className="flex flex-col md:flex-row justify-between items-center">
+          <div className="flex flex-col md:flex-row justify-center items-center">
             <div className="flex items-center space-x-6 mb-4 md:mb-0">
               <p className="text-sm text-gray-600">
-                © {currentYear} CodeBattle Learning. All rights reserved.
+                © {currentYear} CodeBattle with ajay. All rights reserved.
               </p>
             </div>
             
-            <div className="flex items-center space-x-6">
+            {/* <div className="flex items-center space-x-6">
               <Link
                 href="/privacy"
                 className="text-sm text-gray-600 hover:text-blue-600 transition-colors duration-200"
@@ -152,7 +160,7 @@ const Footer = () => {
               >
                 Disclaimer
               </Link>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

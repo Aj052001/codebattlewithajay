@@ -43,8 +43,8 @@ export default function CoursePageClient({ course, courseTutorials }: CoursePage
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
-      <div className="bg-white border-b">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+      <div className="bg-white ">
+        <div className="mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-4">
               <Link
@@ -125,7 +125,7 @@ export default function CoursePageClient({ course, courseTutorials }: CoursePage
             <div className="mt-8 bg-gradient-to-br from-red-500 to-red-600 text-white rounded-lg p-4">
               <div className="text-center">
                 <Youtube className="w-8 h-8 mx-auto mb-2 opacity-90" />
-                <h3 className="font-bold text-sm mb-1">Subscribe to CodeBattle</h3>
+                <h3 className="font-bold text-sm mb-1">Subscribe to CodeBattle with ajay</h3>
                 <p className="text-xs opacity-90 mb-3">
                   Get more free tutorials
                 </p>
@@ -162,21 +162,7 @@ export default function CoursePageClient({ course, courseTutorials }: CoursePage
                   </p>
                 </div>
 
-                {/* YouTube Video Embed */}
-                {selectedTutorial.youtubeVideoId && (
-                  <div className="mb-8">
-                    <div className="relative bg-black rounded-lg overflow-hidden" style={{ paddingBottom: '56.25%' }}>
-                      <iframe
-                        src={`https://www.youtube.com/embed/${selectedTutorial.youtubeVideoId}`}
-                        title={selectedTutorial.title}
-                        frameBorder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowFullScreen
-                        className="absolute inset-0 w-full h-full"
-                      />
-                    </div>
-                  </div>
-                )}
+             
 
                 {/* Tutorial Content */}
                 <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-8">

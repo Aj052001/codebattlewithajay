@@ -53,7 +53,7 @@ export default function CoursesPage() {
           </h1>
           <p className="text-xl opacity-90 max-w-2xl mx-auto">
             Discover comprehensive courses designed to take you from beginner to expert 
-            in DevOps, Cloud Computing, and Programming
+            in DSA, Fullstack Development, DevOps, Data Analytics.
           </p>
         </div>
       </section>

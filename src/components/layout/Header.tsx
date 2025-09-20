@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { Menu, X, Search, Youtube, BookOpen, User, Home } from 'lucide-react';
+import { Menu, X, Youtube, BookOpen, User, Home } from 'lucide-react';
 import { youtubeChannelData } from '@/data/courses';
 
 const Header = () => {
@@ -16,8 +16,8 @@ const Header = () => {
   ];
 
   return (
-    <header className="bg-white shadow-sm border-b sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <header className="bg-white shadow-sm  sticky top-0 z-50">
+      <div className="mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex items-center">
@@ -26,8 +26,8 @@ const Header = () => {
                 <BookOpen className="w-6 h-6 text-white" />
               </div>
               <div className="hidden sm:block">
-                <h1 className="text-xl font-bold text-gray-900">CodeBattle</h1>
-                <p className="text-xs text-gray-600">Learning Platform</p>
+                <h1 className="text-xl font-bold text-gray-900">CodeBattle With Ajay</h1>
+                <p className="text-xs text-gray-600">Learn coding with real challenges</p>
               </div>
             </Link>
           </div>
@@ -48,9 +48,7 @@ const Header = () => {
           {/* Right side actions */}
           <div className="flex items-center space-x-4">
             {/* Search button */}
-            <button className="p-2 text-gray-400 hover:text-gray-600 transition-colors duration-200">
-              <Search className="w-5 h-5" />
-            </button>
+           
 
             {/* YouTube Channel Link */}
             <Link
@@ -87,7 +85,7 @@ const Header = () => {
                 key={item.name}
                 href={item.href}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="flex items-center space-x-3 text-gray-600 hover:text-blue-600 hover:bg-gray-50 block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200"
+                className=" items-center space-x-3 text-gray-600 hover:text-blue-600 hover:bg-gray-50 block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200"
               >
                 <item.icon className="w-5 h-5" />
                 <span>{item.name}</span>
@@ -100,7 +98,7 @@ const Header = () => {
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setIsMobileMenuOpen(false)}
-              className="flex items-center space-x-3 text-red-600 hover:text-red-700 hover:bg-red-50 block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200"
+              className="items-center space-x-3 text-red-600 hover:text-red-700 hover:bg-red-50 block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200"
             >
               <Youtube className="w-5 h-5" />
               <span>Subscribe to Channel</span>

@@ -3,6 +3,42 @@ import { Course, Category, BlogPost, Tutorial } from '@/types';
 export const categories: Category[] = [
   {
     id: '1',
+    name: 'DSA',
+    slug: 'dsa',
+    description: 'Master Data Structures and Algorithms to ace coding interviews.',
+    icon: '🧠',
+    color: 'from-yellow-400 via-yellow-500 to-yellow-600',
+    courseCount: 20
+  },
+  {
+    id: '2',
+    name: 'Fullstack Development',
+    slug: 'fullstack-development',
+    description: 'Learn to build complete web applications using Python, Node.js, and more.',
+    icon: '🌐',
+    color: 'from-cyan-400 via-blue-400 to-blue-600',
+    courseCount: 15
+  },
+  {
+    id: '3',
+    name: 'Python',
+    slug: 'python',
+    description: 'Learn Python for web, data science, automation, and more.',
+    icon: '🐍',
+    color: 'from-green-400 via-green-500 to-green-600',
+    courseCount: 18
+  },
+  {
+    id: '4',
+    name: 'Java',
+    slug: 'java',
+    description: 'Master Java programming for backend and mobile applications.',
+    icon: '☕',
+    color: 'from-red-400 via-red-500 to-red-600',
+    courseCount: 14
+  },
+    {
+    id: '5',
     name: 'DevOps & Automation',
     slug: 'devops-automation',
     description: 'Master DevOps tools and automation practices',
@@ -10,160 +46,62 @@ export const categories: Category[] = [
     color: 'from-blue-500 to-purple-600',
     courseCount: 6
   },
+];
+
+
+
+
+
+
+export const courses: Course[] = [
+    {
+    id: '1',
+    title: 'HTML Fundamentals',
+    description: 'Learn the building blocks of the web with HTML. Create structured web pages and understand semantic tags.',
+    slug: 'html-fundamentals',
+    category: 'Fullstack Development',
+    difficulty: 'Beginner',
+    duration: '2 hours',
+    thumbnail: '/images/courses/html.jpg',
+    youtubePlaylistId: 'PLxxxxxx',
+    topics: ['HTML Basics', 'Elements & Tags', 'Forms', 'Tables', 'Semantic HTML'],
+    isPaid: false,
+    featured: true
+  },
   {
     id: '2',
-    name: 'Cloud Computing',
-    slug: 'cloud-computing',
-    description: 'Build and deploy scalable cloud solutions',
-    icon: '☁️',
-    color: 'from-green-500 to-blue-600',
-    courseCount: 2
+    title: 'CSS Styling Mastery',
+    description: 'Master CSS to make beautiful and responsive web pages. Learn layouts, animations, and advanced styling techniques.',
+    slug: 'css-styling-mastery',
+    category: 'Fullstack Development',
+    difficulty: 'Beginner',
+    duration: '5 hours',
+    thumbnail: '/images/courses/css.jpg',
+    youtubePlaylistId: 'PLxxxxxx',
+    topics: ['CSS Basics', 'Selectors', 'Flexbox', 'Grid', 'Animations', 'Responsive Design'],
+    isPaid: false,
+    featured: true
   },
   {
     id: '3',
-    name: 'Containerization',
-    slug: 'containerization',
-    description: 'Master Docker and container orchestration',
-    icon: '📦',
-    color: 'from-purple-500 to-pink-600',
-    courseCount: 3
-  },
-  {
-    id: '4',
-    name: 'Programming & Scripting',
-    slug: 'programming-scripting',
-    description: 'Learn programming languages and scripting',
-    icon: '💻',
-    color: 'from-orange-500 to-red-600',
-    courseCount: 2
+    title: 'JavaScript Essentials',
+    description: 'Learn JavaScript programming from scratch. Build interactive web applications and understand core JS concepts.',
+    slug: 'javascript-essentials',
+    category: 'Fullstack Development',
+    difficulty: 'Beginner',
+    duration: '6 hours',
+    thumbnail: '/images/courses/javascript.jpg',
+    youtubePlaylistId: 'PLxxxxxx',
+    topics: ['JS Basics', 'Variables & Data Types', 'Functions', 'DOM Manipulation', 'Events', 'ES6+ Features'],
+    isPaid: false,
+    featured: true
   }
 ];
 
-export const courses: Course[] = [
-  {
-    id: '1',
-    title: 'Complete Ansible Mastery',
-    description: 'Automate IT configurations and deployments with Ansible. Learn playbooks, roles, and advanced automation techniques.',
-    slug: 'complete-ansible-mastery',
-    category: 'DevOps & Automation',
-    difficulty: 'Intermediate',
-    duration: '8 hours',
-    thumbnail: '/images/courses/ansible.jpg',
-    youtubePlaylistId: 'PLxxxxxx', // Replace with your playlist ID
-    topics: ['Ansible Basics', 'Playbooks', 'Roles', 'Inventory Management', 'Advanced Automation'],
-    isPaid: false,
-    featured: true,
-    isNew: true
-  },
-  {
-    id: '2',
-    title: 'AWS Cloud Solutions',
-    description: 'Master AWS to build secure, scalable cloud solutions. From EC2 to Lambda and beyond.',
-    slug: 'aws-cloud-solutions',
-    category: 'Cloud Computing',
-    difficulty: 'Beginner',
-    duration: '12 hours',
-    thumbnail: '/images/courses/aws.jpg',
-    youtubePlaylistId: 'PLxxxxxx',
-    topics: ['AWS Fundamentals', 'EC2', 'S3', 'Lambda', 'CloudFormation', 'Security Best Practices'],
-    isPaid: false,
-    featured: true
-  },
-  {
-    id: '3',
-    title: 'Docker Complete Guide',
-    description: 'Build and deploy containerized applications with Docker. Master containers from basics to production.',
-    slug: 'docker-complete-guide',
-    category: 'Containerization',
-    difficulty: 'Beginner',
-    duration: '6 hours',
-    thumbnail: '/images/courses/docker.jpg',
-    youtubePlaylistId: 'PLxxxxxx',
-    topics: ['Docker Basics', 'Images & Containers', 'Dockerfile', 'Networking', 'Volumes', 'Best Practices'],
-    isPaid: false,
-    featured: true
-  },
-  {
-    id: '4',
-    title: 'Docker Compose Mastery',
-    description: 'Manage multi-container applications with Docker Compose. Orchestrate complex applications effortlessly.',
-    slug: 'docker-compose-mastery',
-    category: 'Containerization',
-    difficulty: 'Intermediate',
-    duration: '4 hours',
-    thumbnail: '/images/courses/docker-compose.jpg',
-    youtubePlaylistId: 'PLxxxxxx',
-    topics: ['Compose Basics', 'Multi-service Apps', 'Networks', 'Volumes', 'Environment Variables'],
-    isPaid: false
-  },
-  {
-    id: '5',
-    title: 'Docker Swarm Orchestration',
-    description: 'Simplify container orchestration with Docker Swarm. Scale and manage distributed applications.',
-    slug: 'docker-swarm-orchestration',
-    category: 'Containerization',
-    difficulty: 'Advanced',
-    duration: '5 hours',
-    thumbnail: '/images/courses/docker-swarm.jpg',
-    youtubePlaylistId: 'PLxxxxxx',
-    topics: ['Swarm Basics', 'Services', 'Stacks', 'Load Balancing', 'High Availability'],
-    isPaid: false
-  },
-  {
-    id: '6',
-    title: 'Jenkins CI/CD Pipeline',
-    description: 'Automate build, test, and deployment pipelines with Jenkins. Master continuous integration and delivery.',
-    slug: 'jenkins-ci-cd-pipeline',
-    category: 'DevOps & Automation',
-    difficulty: 'Intermediate',
-    duration: '7 hours',
-    thumbnail: '/images/courses/jenkins.jpg',
-    youtubePlaylistId: 'PLxxxxxx',
-    topics: ['Jenkins Setup', 'Pipelines', 'Plugins', 'Integration', 'Best Practices'],
-    isPaid: false
-  },
-  {
-    id: '7',
-    title: 'Kubernetes Complete Course',
-    description: 'Orchestrate containerized workloads at scale with Kubernetes. From basics to advanced concepts.',
-    slug: 'kubernetes-complete-course',
-    category: 'Containerization',
-    difficulty: 'Advanced',
-    duration: '15 hours',
-    thumbnail: '/images/courses/kubernetes.jpg',
-    youtubePlaylistId: 'PLxxxxxx',
-    topics: ['K8s Architecture', 'Pods', 'Services', 'Deployments', 'ConfigMaps', 'Secrets', 'Ingress'],
-    isPaid: false,
-    featured: true
-  },
-  {
-    id: '8',
-    title: 'Shell Scripting Mastery',
-    description: 'Automate repetitive tasks with powerful shell scripts. Master Bash scripting from beginner to expert.',
-    slug: 'shell-scripting-mastery',
-    category: 'Programming & Scripting',
-    difficulty: 'Beginner',
-    duration: '5 hours',
-    thumbnail: '/images/courses/shell-scripting.jpg',
-    youtubePlaylistId: 'PLxxxxxx',
-    topics: ['Bash Basics', 'Variables', 'Control Structures', 'Functions', 'File Operations', 'Advanced Techniques'],
-    isPaid: true
-  },
-  {
-    id: '9',
-    title: 'Terraform Infrastructure as Code',
-    description: 'Automate cloud provisioning with Terraform\'s Infrastructure as Code approach. Master cloud automation.',
-    slug: 'terraform-infrastructure-as-code',
-    category: 'DevOps & Automation',
-    difficulty: 'Intermediate',
-    duration: '10 hours',
-    thumbnail: '/images/courses/terraform.jpg',
-    youtubePlaylistId: 'PLxxxxxx',
-    topics: ['Terraform Basics', 'Providers', 'Resources', 'Modules', 'State Management', 'Best Practices'],
-    isPaid: true,
-    isNew: true
-  }
-];
+
+
+
+
 
 export const featuredBlogs: BlogPost[] = [
   {
@@ -206,6 +144,13 @@ export const featuredBlogs: BlogPost[] = [
     featured: true
   }
 ];
+
+
+
+
+
+
+
 
 // Tutorial content for each course
 export const tutorials: Tutorial[] = [
@@ -465,11 +410,15 @@ aws iam attach-user-policy --user-name john-doe --policy-arn arn:aws:iam::aws:po
   }
 ];
 
+
+
+
+
 export const youtubeChannelData = {
-  channelName: 'CodeBattle',
+  channelName: 'CodeBattle with ajay',
   channelId: 'UCxxxxxx', // Replace with your channel ID
-  channelUrl: 'https://www.youtube.com/@codebattle',
-  subscriberCount: '10K+',
-  videoCount: '100+',
-  description: 'Learn DevOps, Cloud Computing, and Programming through practical tutorials and real-world projects.'
+  channelUrl: 'https://www.youtube.com/@codebattlewithajay',
+  subscriberCount: '300+',
+  videoCount: '80+',
+  description: 'Learn Dsa, Fullstack Developement, and Devops through practical tutorials and real-world projects.'
 };

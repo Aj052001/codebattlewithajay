@@ -15,7 +15,7 @@ const allBlogs = [
     description: 'Learn how to design, build, and deploy microservices using modern container technologies.',
     slug: 'microservices-architecture-docker-kubernetes',
     content: '',
-    author: 'CodeBattle Team',
+    author: 'Ajay Singh',
     publishedAt: '2024-01-20',
     thumbnail: '/images/blog/microservices.jpg',
     tags: ['Microservices', 'Docker', 'Kubernetes', 'Architecture'],
@@ -28,7 +28,7 @@ const allBlogs = [
     description: 'Discover the best practices for managing cloud infrastructure using Terraform and IaC principles.',
     slug: 'infrastructure-as-code-terraform-best-practices',
     content: '',
-    author: 'CodeBattle Team',
+    author: 'Ajay Singh',
     publishedAt: '2024-01-18',
     thumbnail: '/images/blog/terraform-best-practices.jpg',
     tags: ['Terraform', 'IaC', 'Best Practices', 'Cloud'],
@@ -41,7 +41,7 @@ const allBlogs = [
     description: 'Essential security practices for building secure CI/CD pipelines and protecting your applications.',
     slug: 'cicd-pipeline-security-protecting-deployments',
     content: '',
-    author: 'CodeBattle Team',
+    author: 'Ajay Singh',
     publishedAt: '2024-01-12',
     thumbnail: '/images/blog/cicd-security.jpg',
     tags: ['CI/CD', 'Security', 'DevSecOps', 'Jenkins'],
@@ -98,14 +98,14 @@ export default function BlogPage() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Featured Posts */}
-        {featuredPosts.length > 0 && (
+        {/* {featuredPosts.length > 0 && (
           <section className="mb-16">
             <h2 className="text-3xl font-bold text-gray-900 mb-8">Featured Posts</h2>
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
               {featuredPosts.map((post, index) => (
                 <article 
                   key={post.id}
-                  className={`group ${index === 0 ? 'lg:col-span-2 lg:row-span-2' : ''}`}
+                  
                 >
                   <Link href={`/blog/${post.slug}`}>
                     <div className="bg-white rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-200 hover:border-blue-300 overflow-hidden">
@@ -153,7 +153,62 @@ export default function BlogPage() {
               ))}
             </div>
           </section>
-        )}
+        )} */}
+        
+        {featuredPosts.length > 0 && (
+  <section className="mb-16">
+    <h2 className="text-3xl font-bold text-gray-900 mb-8">Featured Posts</h2>
+    <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      {featuredPosts.map((post) => (
+        <article key={post.id}>
+          <Link href={`/blog/${post.slug}`}>
+            <div className="bg-white rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-200 hover:border-blue-300 overflow-hidden">
+              <div className="bg-gradient-to-br from-blue-100 to-purple-100 h-48 flex items-center justify-center">
+                <div className="text-6xl opacity-30">📚</div>
+              </div>
+              
+              <div className="p-6">
+                <div className="flex items-center gap-2 mb-3">
+                  {post.tags.slice(0, 2).map((tag) => (
+                    <span key={tag} className="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded-full">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+                
+                <h3 className="font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors duration-200 line-clamp-2 text-xl">
+                  {post.title}
+                </h3>
+                
+                <p className="text-gray-600 mb-4 line-clamp-3">
+                  {post.description}
+                </p>
+                
+                <div className="flex items-center justify-between text-sm text-gray-500">
+                  <div className="flex items-center space-x-4">
+                    <span className="flex items-center">
+                      <User className="w-4 h-4 mr-1" />
+                      {post.author}
+                    </span>
+                    <span className="flex items-center">
+                      <Clock className="w-4 h-4 mr-1" />
+                      {post.readTime}
+                    </span>
+                  </div>
+                  <span className="flex items-center">
+                    <Calendar className="w-4 h-4 mr-1" />
+                    {formatDate(post.publishedAt)}
+                  </span>
+                </div>
+              </div>
+            </div>
+          </Link>
+        </article>
+      ))}
+    </div>
+  </section>
+)}
+
 
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
           {/* Sidebar */}
