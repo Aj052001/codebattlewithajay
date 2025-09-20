@@ -368,6 +368,356 @@ docker pull nginx:alpine</code></pre>
     tags: ['docker', 'images', 'dockerfile']
   },
   
+    {
+    id: '5',
+    title: 'Working with Docker Images',
+    description: 'Learn how to build, manage, and optimize Docker images',
+    slug: 'working-with-docker-images',
+    courseId: '3',
+    youtubeVideoId: 'dQw4w9WgXcQ',
+    content: `
+      <h1>Working with Docker Images</h1>
+      <p>Docker images are read-only templates used to create containers.</p>
+      
+      <h2>Creating a Dockerfile</h2>
+      <pre><code># Use official Node.js image
+FROM node:16-alpine
+
+# Set working directory
+WORKDIR /app
+
+# Copy package files
+COPY package*.json ./
+
+# Install dependencies
+RUN npm install
+
+# Copy application code
+COPY . .
+
+# Expose port
+EXPOSE 3000
+
+# Start the application
+CMD ["npm", "start"]</code></pre>
+      
+      <h2>Building and Managing Images</h2>
+      <pre><code># Build an image
+docker build -t my-app:latest .
+
+# List images
+docker images
+
+# Remove an image
+docker rmi my-app:latest
+
+# Pull from registry
+docker pull nginx:alpine</code></pre>
+    `,
+    duration: '22 min',
+    order: 2,
+    tags: ['docker', 'images', 'dockerfile']
+  },
+    {
+    id: '5',
+    title: 'Working with Docker Images',
+    description: 'Learn how to build, manage, and optimize Docker images',
+    slug: 'working-with-docker-images',
+    courseId: '3',
+    youtubeVideoId: 'dQw4w9WgXcQ',
+    content: `
+      <h1>Working with Docker Images</h1>
+      <p>Docker images are read-only templates used to create containers.</p>
+      
+      <h2>Creating a Dockerfile</h2>
+      <pre><code># Use official Node.js image
+FROM node:16-alpine
+
+# Set working directory
+WORKDIR /app
+
+# Copy package files
+COPY package*.json ./
+
+# Install dependencies
+RUN npm install
+
+# Copy application code
+COPY . .
+
+# Expose port
+EXPOSE 3000
+
+# Start the application
+CMD ["npm", "start"]</code></pre>
+      
+      <h2>Building and Managing Images</h2>
+      <pre><code># Build an image
+docker build -t my-app:latest .
+
+# List images
+docker images
+
+# Remove an image
+docker rmi my-app:latest
+
+# Pull from registry
+docker pull nginx:alpine</code></pre>
+    `,
+    duration: '22 min',
+    order: 2,
+    tags: ['docker', 'images', 'dockerfile']
+  },
+    {
+    id: '5',
+    title: 'Working with Docker Images',
+    description: 'Learn how to build, manage, and optimize Docker images',
+    slug: 'working-with-docker-images',
+    courseId: '3',
+    youtubeVideoId: 'dQw4w9WgXcQ',
+    content: `
+      <h1>Working with Docker Images</h1>
+      <p>Docker images are read-only templates used to create containers.</p>
+      
+      <h2>Creating a Dockerfile</h2>
+      <pre><code># Use official Node.js image
+FROM node:16-alpine
+
+# Set working directory
+WORKDIR /app
+
+# Copy package files
+COPY package*.json ./
+
+# Install dependencies
+RUN npm install
+
+# Copy application code
+COPY . .
+
+# Expose port
+EXPOSE 3000
+
+# Start the application
+CMD ["npm", "start"]</code></pre>
+      
+      <h2>Building and Managing Images</h2>
+      <pre><code># Build an image
+docker build -t my-app:latest .
+
+# List images
+docker images
+
+# Remove an image
+docker rmi my-app:latest
+
+# Pull from registry
+docker pull nginx:alpine</code></pre>
+    `,
+    duration: '22 min',
+    order: 2,
+    tags: ['docker', 'images', 'dockerfile']
+  },
+    {
+    id: '5',
+    title: 'Working with Docker Images',
+    description: 'Learn how to build, manage, and optimize Docker images',
+    slug: 'working-with-docker-images',
+    courseId: '3',
+    youtubeVideoId: 'dQw4w9WgXcQ',
+    content: `
+      <h1>Working with Docker Images</h1>
+      <p>Docker images are read-only templates used to create containers.</p>
+      
+      <h2>Creating a Dockerfile</h2>
+      <pre><code># Use official Node.js image
+FROM node:16-alpine
+
+# Set working directory
+WORKDIR /app
+
+# Copy package files
+COPY package*.json ./
+
+# Install dependencies
+RUN npm install
+
+# Copy application code
+COPY . .
+
+# Expose port
+EXPOSE 3000
+
+# Start the application
+CMD ["npm", "start"]</code></pre>
+      
+      <h2>Building and Managing Images</h2>
+      <pre><code># Build an image
+docker build -t my-app:latest .
+
+# List images
+docker images
+
+# Remove an image
+docker rmi my-app:latest
+
+# Pull from registry
+docker pull nginx:alpine</code></pre>
+    `,
+    duration: '22 min',
+    order: 2,
+    tags: ['docker', 'images', 'dockerfile']
+  },
+    {
+    id: '5',
+    title: 'Working with Docker Images',
+    description: 'Learn how to build, manage, and optimize Docker images',
+    slug: 'working-with-docker-images',
+    courseId: '3',
+    youtubeVideoId: 'dQw4w9WgXcQ',
+    content: `
+      <h1>Working with Docker Images</h1>
+      <p>Docker images are read-only templates used to create containers.</p>
+      
+      <h2>Creating a Dockerfile</h2>
+      <pre><code># Use official Node.js image
+FROM node:16-alpine
+
+# Set working directory
+WORKDIR /app
+
+# Copy package files
+COPY package*.json ./
+
+# Install dependencies
+RUN npm install
+
+# Copy application code
+COPY . .
+
+# Expose port
+EXPOSE 3000
+
+# Start the application
+CMD ["npm", "start"]</code></pre>
+      
+      <h2>Building and Managing Images</h2>
+      <pre><code># Build an image
+docker build -t my-app:latest .
+
+# List images
+docker images
+
+# Remove an image
+docker rmi my-app:latest
+
+# Pull from registry
+docker pull nginx:alpine</code></pre>
+    `,
+    duration: '22 min',
+    order: 2,
+    tags: ['docker', 'images', 'dockerfile']
+  },
+    {
+    id: '5',
+    title: 'Working with Docker Images',
+    description: 'Learn how to build, manage, and optimize Docker images',
+    slug: 'working-with-docker-images',
+    courseId: '3',
+    youtubeVideoId: 'dQw4w9WgXcQ',
+    content: `
+      <h1>Working with Docker Images</h1>
+      <p>Docker images are read-only templates used to create containers.</p>
+      
+      <h2>Creating a Dockerfile</h2>
+      <pre><code># Use official Node.js image
+FROM node:16-alpine
+
+# Set working directory
+WORKDIR /app
+
+# Copy package files
+COPY package*.json ./
+
+# Install dependencies
+RUN npm install
+
+# Copy application code
+COPY . .
+
+# Expose port
+EXPOSE 3000
+
+# Start the application
+CMD ["npm", "start"]</code></pre>
+      
+      <h2>Building and Managing Images</h2>
+      <pre><code># Build an image
+docker build -t my-app:latest .
+
+# List images
+docker images
+
+# Remove an image
+docker rmi my-app:latest
+
+# Pull from registry
+docker pull nginx:alpine</code></pre>
+    `,
+    duration: '22 min',
+    order: 2,
+    tags: ['docker', 'images', 'dockerfile']
+  },
+    {
+    id: '5',
+    title: 'Working with Docker Images',
+    description: 'Learn how to build, manage, and optimize Docker images',
+    slug: 'working-with-docker-images',
+    courseId: '3',
+    youtubeVideoId: 'dQw4w9WgXcQ',
+    content: `
+      <h1>Working with Docker Images</h1>
+      <p>Docker images are read-only templates used to create containers.</p>
+      
+      <h2>Creating a Dockerfile</h2>
+      <pre><code># Use official Node.js image
+FROM node:16-alpine
+
+# Set working directory
+WORKDIR /app
+
+# Copy package files
+COPY package*.json ./
+
+# Install dependencies
+RUN npm install
+
+# Copy application code
+COPY . .
+
+# Expose port
+EXPOSE 3000
+
+# Start the application
+CMD ["npm", "start"]</code></pre>
+      
+      <h2>Building and Managing Images</h2>
+      <pre><code># Build an image
+docker build -t my-app:latest .
+
+# List images
+docker images
+
+# Remove an image
+docker rmi my-app:latest
+
+# Pull from registry
+docker pull nginx:alpine</code></pre>
+    `,
+    duration: '22 min',
+    order: 2,
+    tags: ['docker', 'images', 'dockerfile']
+  },
   // AWS Course Tutorials
   {
     id: '6',
