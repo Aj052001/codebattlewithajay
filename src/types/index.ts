@@ -14,18 +14,38 @@ export interface Course {
   featured?: boolean;
 }
 
-export interface Tutorial {
+// src/types.ts
+// export type TutorialContentBlock = 
+//   | { type: 'h1' | 'h2' | 'h3' | 'p'; text: string }
+//   | { type: 'ul' | 'ol'; text: string[] }
+//   | { type: 'code'; text: string; language?: string };
+
+export type Tutorial = {
   id: string;
   title: string;
   description: string;
   slug: string;
   courseId: string;
-  youtubeVideoId?: string;
   content: string;
   duration: string;
   order: number;
   tags: string[];
-}
+};
+
+
+
+// export interface Tutorial {
+//   id: string;
+//   title: string;
+//   description: string;
+//   slug: string;
+//   courseId: string;
+//   youtubeVideoId?: string;
+//   content: string;
+//   duration: string;
+//   order: number;
+//   tags: string[];
+// }
 
 export interface BlogPost {
   id: string;

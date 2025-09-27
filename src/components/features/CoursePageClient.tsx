@@ -21,6 +21,7 @@ export default function CoursePageClient({ course, courseTutorials }: CoursePage
     Advanced: 'bg-red-100 text-red-800',
   };
 
+  console.log(courseTutorials.length)
   if (!courseTutorials.length) {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
@@ -90,75 +91,53 @@ export default function CoursePageClient({ course, courseTutorials }: CoursePage
       </div>
 
       <div className="flex h-[calc(100vh-73px)]">
-
-
-{/* Sidebar */}
+  
+ {/* Sidebar */}
 <div
-  className={`fixed left-0 top-[64px] bottom-0 w-72 bg-white border-r transform transition-transform duration-300 ease-in-out z-40 sm:static sm:translate-x-0 ${
-    sidebarOpen ? 'translate-x-0' : '-translate-x-full'
-  }`}
+  className="fixed left-0 top-[64px] bottom-0 w-72 bg-white border-r z-40 sm:static"
 >
-  <div className="p-4 h-full flex flex-col">
-    {/* Close button for mobile */}
-    <div className="flex items-center justify-between sm:hidden mb-4">
-      <h2 className="text-lg font-bold text-gray-900">Course Content</h2>
-      <button
-        className="text-gray-600 hover:text-red-500"
-        onClick={() => setSidebarOpen(false)}
-      >
-        <X className="w-6 h-6" />
-      </button>
-    </div>
-
+  <div className="h-full flex flex-col">
     {/* Tutorials list */}
-    <ul className="space-y-2 flex-1 overflow-y-auto">
+    <ul className="w-full space-y-2 flex-1 overflow-y-auto">
       {courseTutorials.map((tutorial, index) => (
-        <li key={tutorial.id}>
+        <li className='p-2' key={tutorial.id}>
           <Link
-            href={`#tutorial-${tutorial.id}`} // anchor id yaa alag route use karna hai to change kar sakte ho
-            onClick={() => {
-              setSelectedTutorial(tutorial);
-              setSidebarOpen(false); // mobile auto close
-            }}
-            className={`block p-3 rounded-lg transition-colors duration-200 ${
-              selectedTutorial?.id === tutorial.id
-                ? 'bg-blue-100 text-blue-900 border border-blue-200'
-                : 'hover:bg-gray-50 border border-gray-200'
-            }`}
+            href={`#tutorial-${tutorial.id}`}
+            onClick={() => setSelectedTutorial(tutorial)}
+            className={`
+              block p-3 rounded-lg transition-colors duration-200 focus:outline-none
+              ${
+                selectedTutorial?.id === tutorial.id
+                  ? 'bg-blue-100 text-blue-900 border border-blue-200'
+                  : 'hover:bg-blue-100 text-gray-900 border border-transparent'
+              }
+            `}
           >
-            <div className="flex items-center justify-between">
-              <div className="flex items-center space-x-3">
-                <div
-                  className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-medium ${
+            <div className="flex items-center space-x-2">
+              <div
+                className={`
+                  w-6 h-6 rounded-full flex items-center justify-center text-xs font-medium
+                  ${
                     selectedTutorial?.id === tutorial.id
                       ? 'bg-blue-600 text-white'
                       : 'bg-gray-300 text-gray-700'
-                  }`}
-                >
-                  {index + 1}
-                </div>
-                <div>
-                  <h3 className="font-medium text-sm mb-1 line-clamp-2">{tutorial.title}</h3>
-                  <div className="flex items-center text-xs text-gray-500">
-                    <Clock className="w-3 h-3 mr-1" />
-                    {tutorial.duration}
-                  </div>
-                </div>
+                  }
+                `}
+              >
+                {index + 1}
               </div>
-              <ChevronRight
-                className={`w-4 h-4 ${
-                  selectedTutorial?.id === tutorial.id ? 'text-blue-600' : 'text-gray-400'
-                }`}
-              />
+              {/* 👇 text ab wrap karega, cut nahi hoga */}
+              <h3 className="font-medium text-sm whitespace-normal break-words">
+                {tutorial.title}
+              </h3>
             </div>
           </Link>
         </li>
       ))}
     </ul>
-
-  
   </div>
 </div>
+
 
         {/* Overlay for mobile sidebar */}
         {sidebarOpen && (
@@ -191,10 +170,10 @@ export default function CoursePageClient({ course, courseTutorials }: CoursePage
                 {/* Tutorial Content */}
                 <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-4 sm:p-8">
                   <div
-  className="prose prose-sm sm:prose-lg max-w-none break-words whitespace-pre-wrap overflow-x-auto"
+  className="prose prose-sm sm:prose-lg max-w-none break-words whitespace-normal overflow-x-auto
+             prose-p:my-2 prose-h1:my-3 prose-h2:my-2 prose-li:my-1"
   dangerouslySetInnerHTML={{ __html: selectedTutorial.content }}
 />
-
                   {/* Tutorial Navigation */}
                   <div className="mt-6 sm:mt-8 pt-6 sm:pt-8 border-t border-gray-200 flex flex-row justify-between gap-4">
                   
