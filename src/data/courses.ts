@@ -98,7 +98,7 @@ export const courses: Course[] = [
     featured: true
   }, {
   id: '4',
-  title: 'React.js Fundamentals',
+  title: 'React.js',
   description:
     'Master React.js — the powerful JavaScript library for building modern, dynamic, and responsive user interfaces. Learn components, props, state, hooks, and routing from scratch.',
   slug: 'reactjs-fundamentals',
