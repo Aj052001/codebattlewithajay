@@ -1,5 +1,6 @@
 import { Course, Category, BlogPost, Tutorial } from '@/types';
 import { htmlTutorials } from '../tutorials/html'
+import { reactTutorials } from '../tutorials/reactjs'
 export const categories: Category[] = [
   {
     id: '1',
@@ -95,7 +96,30 @@ export const courses: Course[] = [
     topics: ['JS Basics', 'Variables & Data Types', 'Functions', 'DOM Manipulation', 'Events', 'ES6+ Features'],
     isPaid: false,
     featured: true
-  }
+  }, {
+  id: '4',
+  title: 'React.js Fundamentals',
+  description:
+    'Master React.js — the powerful JavaScript library for building modern, dynamic, and responsive user interfaces. Learn components, props, state, hooks, and routing from scratch.',
+  slug: 'reactjs-fundamentals',
+  category: 'Frontend Development',
+  difficulty: 'Intermediate',
+  duration: '8 hours',
+  thumbnail: '/images/courses/reactjs.jpg',
+  youtubePlaylistId: 'PLxxxxxx', // replace with your actual React playlist ID
+  topics: [
+    'Introduction to React.js',
+    'JSX & Components',
+    'Props and State',
+    'Handling Events',
+    'React Hooks (useState, useEffect)',
+    'React Router DOM',
+    'Project: Build a React App'
+  ],
+  isPaid: false,
+  featured: true
+}
+
 ];
 
 
@@ -151,6 +175,7 @@ export const featuredBlogs: BlogPost[] = [
 
 export const tutorials: Tutorial[] = [
   ...htmlTutorials,
+  ...reactTutorials
 
 ];
 
