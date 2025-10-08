@@ -142,21 +142,153 @@ const App = function() {
       <p>Style it using a CSS Module and make it look attractive .</p>
     </section>
 
-    <section>
-      <h2 style="color:#0073b1; margin-bottom: 20px;"> Next Chapter Preview</h2>
-      <ul style="font-size: 1.05rem; line-height: 1.6;">
-        <li>👉 React Components in depth</li>
-        <li>👉 Props & State</li>
-        <li>👉 Hands-on Component Practice</li>
-      </ul>
-    </section>
 
   </div>
   `,
   duration: '20 min',
   order: 1,
   tags: ['react', 'js', 'jsx', 'vite', 'babel', 'components']
+},
+{
+  id: '2',
+  title: 'React Props & Events',
+  description: 'Master props and events in React. Learn how to pass data between components, handle user interactions, render lists efficiently, and create dynamic, interactive applications.',
+  slug: 'react-props-and-events',
+  courseId: '4',
+  content: `
+  <div style="font-family: 'Inter', sans-serif; line-height: 1.8; color: #1c1e21; padding: 40px; max-width: 100%; margin: 0 auto; background-color: #ffffff;">
+
+    <h1 style="font-size: 2.5rem; color: #0073b1; text-align: center; margin-bottom: 30px;">2 : React Props & Events ⚛️</h1>
+
+    <p style="font-size: 1.15rem; text-align: center; color: #4b4f56; margin-bottom: 40px;">
+      In this module, you'll learn about <strong style="color:#d93025;">props</strong> and <strong style="color:#d93025;">events</strong> in React. 
+      Understand how to pass data between components, handle user interactions, render lists efficiently, and make your apps interactive. 🚀✨
+    </p>
+
+    <hr style="margin: 50px 0; border: 0; height: 1px; background: #d1d5db;" />
+
+    <section style="margin-bottom: 50px;">
+      <h2 style="color:#0073b1; margin-bottom: 20px;">What are Props?</h2>
+      <p style="margin-bottom: 20px; font-size: 1.1rem;">
+        <strong>Props</strong> (short for "properties") are used to pass <strong>data from a parent component to a child component</strong>. 
+        Props are <strong>read-only</strong> — child components cannot modify them. Think of props as function arguments for components.
+      </p>
+
+      <h3 style="margin-bottom: 15px;">Example: Passing props from parent to child</h3>
+      <pre style="background-color:#f3f4f6; padding:15px; border-radius:6px; overflow-x:auto;"><code>// Parent.jsx
+import Child from './Child';
+
+export default function Parent() {
+  return &lt;Child name="Ajay" age={22} /&gt;;
 }
+
+// Child.jsx
+export default function Child({ name, age }) {
+  return &lt;p&gt;Hello, my name is {name} and I am {age} years old.&lt;/p&gt;;
+}
+</code></pre>
+
+      <ul style="margin-top: 15px; font-size: 1.05rem; line-height: 1.6;">
+        <li>Use <strong>destructuring</strong> to extract props easily.</li>
+        <li>Props can be <strong>string, number, object, array, or even functions</strong>.</li>
+        <li>Props are <strong>immutable inside child</strong>. To change, use state in parent.</li>
+      </ul>
+    </section>
+
+    <section style="margin-bottom: 50px;">
+      <h2 style="color:#0073b1; margin-bottom: 20px;">Default Props</h2>
+      <p style="margin-bottom: 20px;">You can set a <strong>default value</strong> for props if the parent doesn't pass them.</p>
+      <pre style="background-color:#f3f4f6; padding:15px; border-radius:6px; overflow-x:auto;"><code>function Child({ name = "Guest" }) {
+  return &lt;p&gt;Hello, {name}!&lt;/p&gt;;
+}
+
+export default Child;
+</code></pre>
+    </section>
+
+    <section style="margin-bottom: 50px;">
+      <h2 style="color:#0073b1; margin-bottom: 20px;">Children Props</h2>
+      <p>You can pass JSX content between opening and closing tags of a component using <strong>children</strong> prop.</p>
+      <pre style="background-color:#f3f4f6; padding:15px; border-radius:6px; overflow-x:auto;"><code>function Container({ children }) {
+  return &lt;div className="container"&gt;{children}&lt;/div&gt;;
+}
+
+// Usage
+&lt;Container&gt;
+  &lt;p&gt;This is a child element.&lt;/p&gt;
+&lt;/Container&gt;
+</code></pre>
+    </section>
+
+    <section style="margin-bottom: 50px;">
+      <h2 style="color:#0073b1; margin-bottom: 20px;">Rendering Lists & Key Prop</h2>
+      <p>Use <strong>map()</strong> to render lists dynamically. Always add a <strong>key prop</strong> to help React identify items efficiently.</p>
+      <pre style="background-color:#f3f4f6; padding:15px; border-radius:6px; overflow-x:auto;"><code>const fruits = ["Apple", "Banana", "Mango"];
+
+export default function FruitList() {
+  return (
+    &lt;ul&gt;
+      {fruits.map((fruit, index) =&gt; (
+        &lt;li key={index}&gt;{fruit}&lt;/li&gt;
+      ))}
+    &lt;/ul&gt;
+  );
+}
+</code></pre>
+      <p><strong>Note:</strong> For static lists, <code>index</code> as key is okay. For dynamic lists that may change, use unique IDs to avoid bugs.</p>
+    </section>
+
+    <section style="margin-bottom: 50px;">
+      <h2 style="color:#0073b1; margin-bottom: 20px;">Handling Events</h2>
+      <p>React allows handling user events like <strong>click, change, submit</strong>. Event handlers are functions passed to JSX attributes.</p>
+      <pre style="background-color:#f3f4f6; padding:15px; border-radius:6px; overflow-x:auto;"><code>function Button() {
+  const handleClick = () =&gt; {
+    alert("Button clicked!");
+  };
+
+  return &lt;button onClick={handleClick}&gt;Click Me&lt;/button&gt;;
+}
+
+export default Button;
+</code></pre>
+      <ul style="margin-top: 10px; font-size: 1.05rem;">
+        <li>Event handler functions can be <strong>normal functions</strong> or <strong>arrow functions</strong>.</li>
+        <li>The event object is passed automatically to the function if needed (<code>e</code>).</li>
+        <li>Use arrow functions for concise syntax and to avoid <code>this</code> binding issues.</li>
+      </ul>
+    </section>
+
+    <section style="margin-bottom: 50px;">
+      <h2 style="color:#0073b1; margin-bottom: 20px;">Practice Task</h2>
+      <p>1️⃣ Create a parent component passing <strong>props</strong> to multiple child cards. Each card should display:</p>
+      <pre style="background-color:#f3f4f6; padding:15px; border-radius:6px; overflow-x:auto;"><code>Name: (string)
+Age: (number)
+Description: (string)
+</code></pre>
+      <p>2️⃣ Add a button inside each card with an <strong>onClick</strong> event that shows an alert with the card name.</p>
+      <p>3️⃣ Render the list of cards dynamically using <strong>map()</strong> and ensure proper <strong>key</strong> usage.</p>
+    </section>
+
+    <section>
+      <h2 style="color:#0073b1; margin-bottom: 20px;">Summary</h2>
+      <ul style="font-size: 1.05rem; line-height: 1.6;">
+        <li>✅ Props allow passing data from parent to child.</li>
+        <li>✅ Default props can set fallback values.</li>
+        <li>✅ Children props enable nested content.</li>
+        <li>✅ Lists should use <strong>key prop</strong> for performance.</li>
+        <li>✅ React events handle user interactions efficiently.</li>
+      </ul>
+    </section>
+
+
+  </div>
+  `,
+  duration: '25 min',
+  order: 2,
+  tags: ['react', 'props', 'events', 'jsx', 'components']
+}
+
+
 
 
 
