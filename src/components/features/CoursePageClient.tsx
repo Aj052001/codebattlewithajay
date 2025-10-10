@@ -76,7 +76,7 @@ export default function CoursePageClient({ course, courseTutorials }: CoursePage
               </span>
               {course.youtubePlaylistId && (
                 <Link
-                  href={`https://www.youtube.com/playlist?list=${course.youtubePlaylistId}`}
+                  href={`https://www.youtube.com/playlist?list=PL49awUNfft2JXjskBOK3KVqUf4HsxyT_q`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center bg-red-600 hover:bg-red-700 text-white font-medium px-3 sm:px-4 py-2 rounded-lg text-xs sm:text-sm transition-colors duration-200"
