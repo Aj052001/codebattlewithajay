@@ -1,6 +1,8 @@
 import { Course, Category, BlogPost, Tutorial } from '@/types';
 import { htmlTutorials } from '../tutorials/html'
 import { reactTutorials } from '../tutorials/reactjs'
+import { backendTutorials } from '@/tutorials/backend';
+
 export const categories: Category[] = [
   {
     id: '1',
@@ -62,7 +64,7 @@ export const courses: Course[] = [
     slug: 'html-fundamentals',
     category: 'Fullstack Development',
     difficulty: 'Beginner',
-    duration: '2 hours',
+    duration: '5 hours',
     thumbnail: '/images/courses/html.jpg',
     youtubePlaylistId: 'PLxxxxxx',
     topics: ['HTML Basics', 'Elements & Tags', 'Forms', 'Tables', 'Semantic HTML'],
@@ -76,7 +78,7 @@ export const courses: Course[] = [
     slug: 'css-styling-mastery',
     category: 'Fullstack Development',
     difficulty: 'Beginner',
-    duration: '5 hours',
+    duration: '15 hours',
     thumbnail: '/images/courses/css.jpg',
     youtubePlaylistId: 'PL49awUNfft2JXjskBOK3KVqUf4HsxyT_q',
     topics: ['CSS Basics', 'Selectors', 'Flexbox', 'Grid', 'Animations', 'Responsive Design'],
@@ -89,8 +91,8 @@ export const courses: Course[] = [
     description: 'Learn JavaScript programming from scratch. Build interactive web applications and understand core JS concepts.',
     slug: 'javascript-essentials',
     category: 'Fullstack Development',
-    difficulty: 'Beginner',
-    duration: '6 hours',
+    difficulty: 'Intermediate',
+    duration: '30 hours',
     thumbnail: '/images/courses/javascript.jpg',
     youtubePlaylistId: 'PLxxxxxx',
     topics: ['JS Basics', 'Variables & Data Types', 'Functions', 'DOM Manipulation', 'Events', 'ES6+ Features'],
@@ -104,7 +106,7 @@ export const courses: Course[] = [
   slug: 'reactjs-fundamentals',
   category: 'Frontend Development',
   difficulty: 'Intermediate',
-  duration: '8 hours',
+  duration: '20 hours',
   thumbnail: '/images/courses/reactjs.jpg',
   youtubePlaylistId: 'PLxxxxxx', // replace with your actual React playlist ID
   topics: [
@@ -115,6 +117,33 @@ export const courses: Course[] = [
     'React Hooks (useState, useEffect)',
     'React Router DOM',
     'Project: Build a React App'
+  ],
+  isPaid: false,
+  featured: true
+},
+{
+  id: '5',
+  title: 'Complete Backend Development',
+  description:
+    'Master full-stack backend development from scratch. Learn Node.js, databases (SQL & NoSQL), API design, authentication, security, testing, deployment, and build production-ready scalable backend systems.',
+  slug: 'complete-backend-development',
+  category: 'Backend Development',
+  difficulty: 'Advanced',
+  duration: '50 hours',
+  thumbnail: '/images/courses/backend.jpg',
+  youtubePlaylistId: 'PLxxxxxx', // replace with your actual Backend playlist ID
+  topics: [
+    'Introduction to Backend Development',
+    'Node.js & Express Fundamentals',
+    'RESTful API Design & Best Practices',
+    'SQL Databases (PostgreSQL/MySQL)',
+    'NoSQL Databases (MongoDB)',
+    'Authentication & Authorization (JWT, OAuth)',
+    'API Security & Validation',
+    'File Handling & Cloud Storage',
+    'Testing (Unit & Integration)',
+    'Deployment & DevOps Basics',
+    'Project: Full Backend Application'
   ],
   isPaid: false,
   featured: true
@@ -175,7 +204,8 @@ export const featuredBlogs: BlogPost[] = [
 
 export const tutorials: Tutorial[] = [
   ...htmlTutorials,
-  ...reactTutorials
+  ...reactTutorials,
+  ...backendTutorials
 
 ];
 
