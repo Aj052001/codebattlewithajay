@@ -2,6 +2,8 @@ import { Course, Category, BlogPost, Tutorial } from '@/types';
 import { htmlTutorials } from '../tutorials/html'
 import { reactTutorials } from '../tutorials/reactjs'
 import { backendTutorials } from '@/tutorials/backend';
+import { cssTutorials } from '@/tutorials/css';
+import { jsTutorials } from '@/tutorials/js';
 
 export const categories: Category[] = [
   {
@@ -204,6 +206,8 @@ export const featuredBlogs: BlogPost[] = [
 
 export const tutorials: Tutorial[] = [
   ...htmlTutorials,
+  ...cssTutorials,
+  ...jsTutorials,
   ...reactTutorials,
   ...backendTutorials
 
