@@ -22,6 +22,8 @@ import {
   getApiBaseUrl,
 } from '@/lib/api';
 import LessonContentEditor from '@/components/admin/LessonContentEditor';
+import type { AdminBlog, AdminCourse, AdminLesson, AdminMockTest, Difficulty } from '@/types/admin';
+import type { ReactNode } from 'react';
 
 type MainTab = 'courses' | 'blogs' | 'tests';
 type CourseSubTab = 'details' | 'lessons';
@@ -33,7 +35,7 @@ const emptyCourse = {
   description: '',
   slug: '',
   category: 'Fullstack Development',
-  difficulty: 'Beginner',
+  difficulty: 'Beginner' as Difficulty,
   duration: '',
   topics: '',
   youtubePlaylistId: '',
@@ -70,7 +72,7 @@ const emptyTest = {
   description: '',
   slug: '',
   topic: '',
-  difficulty: 'Beginner',
+  difficulty: 'Beginner' as Difficulty,
   duration: '10 min',
   passPercent: 60,
   isPublished: true,
@@ -93,10 +95,10 @@ export default function AdminPage() {
   const [tab, setTab] = useState<MainTab>('courses');
   const [courseSubTab, setCourseSubTab] = useState<CourseSubTab>('lessons');
 
-  const [courses, setCourses] = useState<any[]>([]);
-  const [blogs, setBlogs] = useState<any[]>([]);
-  const [tests, setTests] = useState<any[]>([]);
-  const [lessons, setLessons] = useState<any[]>([]);
+  const [courses, setCourses] = useState<AdminCourse[]>([]);
+  const [blogs, setBlogs] = useState<AdminBlog[]>([]);
+  const [tests, setTests] = useState<AdminMockTest[]>([]);
+  const [lessons, setLessons] = useState<AdminLesson[]>([]);
 
   const [selectedCourseId, setSelectedCourseId] = useState<string | null>(null);
   const [isCreatingCourse, setIsCreatingCourse] = useState(false);
@@ -161,7 +163,7 @@ export default function AdminPage() {
   const loadLessons = async (authToken: string, courseSlug: string) => {
     try {
       const data = await adminFetchTutorials(authToken, courseSlug);
-      setLessons(data.sort((a: any, b: any) => (a.order || 0) - (b.order || 0)));
+      setLessons([...data].sort((a, b) => (a.order || 0) - (b.order || 0)));
     } catch (err) {
       flash(err instanceof Error ? err.message : 'Failed to load lessons', true);
     }
@@ -213,7 +215,7 @@ export default function AdminPage() {
     );
   }, [courses, courseSearch]);
 
-  const openCourse = (course: any) => {
+  const openCourse = (course: AdminCourse) => {
     setIsCreatingCourse(false);
     setSelectedCourseId(course._id);
     setCourseSubTab('lessons');
@@ -241,7 +243,7 @@ export default function AdminPage() {
     setSelectedLessonId(null);
   };
 
-  const openLesson = (lesson: any) => {
+  const openLesson = (lesson: AdminLesson) => {
     setSelectedLessonId(lesson._id);
     setLessonForm({
       title: lesson.title || '',
@@ -301,7 +303,7 @@ export default function AdminPage() {
         flash('Course created');
         setIsCreatingCourse(false);
         await loadAll(token);
-        if ((res as any).data?._id) openCourse((res as any).data);
+        if (res.data?._id) openCourse(res.data);
         return;
       }
       await loadAll(token);
@@ -361,7 +363,7 @@ export default function AdminPage() {
         const res = await adminCreateTutorial(token, payload);
         flash('Lesson created');
         await loadLessons(token, selectedCourse.slug);
-        if ((res as any).data?._id) openLesson((res as any).data);
+        if (res.data?._id) openLesson(res.data);
         return;
       }
       await loadLessons(token, selectedCourse.slug);
@@ -388,7 +390,7 @@ export default function AdminPage() {
     }
   };
 
-  const openBlog = (blog: any) => {
+  const openBlog = (blog: AdminBlog) => {
     setSelectedBlogId(blog._id);
     setBlogForm({
       title: blog.title || '',
@@ -434,7 +436,7 @@ export default function AdminPage() {
     }
   };
 
-  const openTest = (test: any) => {
+  const openTest = (test: AdminMockTest) => {
     setSelectedTestId(test._id);
     setTestForm({
       title: test.title || '',
@@ -690,7 +692,12 @@ export default function AdminPage() {
                           <select
                             className="input"
                             value={courseForm.difficulty}
-                            onChange={(e) => setCourseForm((f) => ({ ...f, difficulty: e.target.value }))}
+                            onChange={(e) =>
+                              setCourseForm((f) => ({
+                                ...f,
+                                difficulty: e.target.value as Difficulty,
+                              }))
+                            }
                           >
                             <option>Beginner</option>
                             <option>Intermediate</option>
@@ -1119,7 +1126,7 @@ export default function AdminPage() {
   );
 }
 
-function Field({ label, children }: { label: string; children: React.ReactNode }) {
+function Field({ label, children }: { label: string; children: ReactNode }) {
   return (
     <label className="block text-sm">
       <span className="block font-medium text-slate-700 mb-1">{label}</span>
@@ -1128,7 +1135,7 @@ function Field({ label, children }: { label: string; children: React.ReactNode }
   );
 }
 
-function SimpleCrud({
+function SimpleCrud<T extends { _id: string; title: string; slug: string }>({
   title,
   items,
   selectedId,
@@ -1138,12 +1145,12 @@ function SimpleCrud({
   form,
 }: {
   title: string;
-  items: any[];
+  items: T[];
   selectedId: string | null;
-  onSelect: (item: any) => void;
+  onSelect: (item: T) => void;
   onNew: () => void;
   onDelete: (id: string) => void;
-  form: React.ReactNode;
+  form: ReactNode;
 }) {
   return (
     <div className="grid grid-cols-1 lg:grid-cols-12 gap-5">
