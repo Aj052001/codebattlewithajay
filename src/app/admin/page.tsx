@@ -90,7 +90,7 @@ function slugify(text: string) {
 
 export default function AdminPage() {
   const [token, setToken] = useState<string | null>(null);
-  const [email, setEmail] = useState('admin@codebattle.com');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [tab, setTab] = useState<MainTab>('courses');
   const [courseSubTab, setCourseSubTab] = useState<CourseSubTab>('lessons');
@@ -496,7 +496,6 @@ export default function AdminPage() {
             name="email"
             autoComplete="username"
             value={email}
-            placeholder="admin@codebattle.com"
             onChange={(e) => setEmail(e.target.value)}
             className="w-full mb-4 px-3 py-2.5 border border-slate-300 rounded-xl"
             required
@@ -507,14 +506,10 @@ export default function AdminPage() {
             name="password"
             autoComplete="current-password"
             value={password}
-            placeholder="Enter admin password"
             onChange={(e) => setPassword(e.target.value)}
-            className="w-full mb-2 px-3 py-2.5 border border-slate-300 rounded-xl"
+            className="w-full mb-6 px-3 py-2.5 border border-slate-300 rounded-xl"
             required
           />
-          <p className="text-xs text-slate-500 mb-6">
-            Default email: <span className="font-medium text-slate-700">admin@codebattle.com</span>
-          </p>
           <button type="submit" className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-xl">
             Login
           </button>
