@@ -125,6 +125,7 @@ export function mapMockTest(raw: ApiRecord): MockTest & { passPercent?: number; 
     question: q.question,
     options: q.options || [],
     correctIndex: typeof q.correctIndex === 'number' ? q.correctIndex : -1,
+    explanation: typeof q.explanation === 'string' ? q.explanation : undefined,
   }));
 
   return {

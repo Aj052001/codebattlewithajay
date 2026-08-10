@@ -3,6 +3,7 @@ export type MockQuestion = {
   question: string;
   options: string[];
   correctIndex: number;
+  explanation?: string;
 };
 
 export type MockTest = {

@@ -111,7 +111,17 @@ export default function MockTestClient({ test, useApi = true }: MockTestClientPr
     const finalAnswers = answerSnapshot ?? answersRef.current;
     try {
       const data = await submitMockTest(test.slug, finalAnswers);
-      setResult(data);
+      // Keep explanations from submit API (public GET strips them during the quiz)
+      setResult({
+        ...data,
+        review: (data.review || []).map((item, index) => ({
+          ...item,
+          explanation:
+            (item.explanation && String(item.explanation).trim()) ||
+            questions[index]?.explanation ||
+            undefined,
+        })),
+      });
       setPhase('result');
     } catch (err) {
       // Fallback to local scoring if API fails and answers exist locally
@@ -288,11 +298,15 @@ export default function MockTestClient({ test, useApi = true }: MockTestClientPr
                     Correct: {q?.options[item.correctIndex]}
                   </p>
                 )}
-                {item.explanation ? (
-                  <p className="text-sm text-gray-600 mt-2 pt-2 border-t border-gray-200/80">
-                    <span className="font-medium text-gray-800">Explanation: </span>
-                    {item.explanation}
-                  </p>
+                {(item.explanation || '').trim() ? (
+                  <div className="mt-3 rounded-lg bg-white/80 border border-gray-200 px-3 py-2.5">
+                    <p className="text-xs font-semibold uppercase tracking-wide text-gray-500 mb-1">
+                      Explanation
+                    </p>
+                    <p className="text-sm text-gray-800 leading-relaxed">
+                      {(item.explanation || '').trim()}
+                    </p>
+                  </div>
                 ) : null}
               </div>
             );
