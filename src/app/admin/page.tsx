@@ -19,7 +19,6 @@ import {
   adminCreateTutorial,
   adminUpdateTutorial,
   adminDeleteTutorial,
-  getApiBaseUrl,
 } from '@/lib/api';
 import LessonContentEditor from '@/components/admin/LessonContentEditor';
 import type { AdminBlog, AdminCourse, AdminLesson, AdminMockTest, Difficulty } from '@/types/admin';
@@ -487,8 +486,7 @@ export default function AdminPage() {
           onSubmit={handleLogin}
           className="w-full max-w-md bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 shadow-sm"
         >
-          <h1 className="text-2xl font-bold text-slate-900 mb-1">Admin Login</h1>
-          <p className="text-sm text-slate-500 mb-6">API: {getApiBaseUrl()}</p>
+          <h1 className="text-2xl font-bold text-slate-900 mb-6">Admin Login</h1>
           {error && <p className="mb-4 text-sm text-red-600">{error}</p>}
           <label className="block text-sm font-medium text-slate-700 mb-1">Email</label>
           <input
