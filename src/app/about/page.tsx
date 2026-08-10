@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import { BookOpen, Youtube, Users, Target, Award, Heart } from 'lucide-react';
 import { youtubeChannelData } from '@/data/courses';
@@ -46,9 +47,14 @@ export default function AboutPage() {
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-blue-600 to-purple-600 py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
-          <div className="w-20 h-20 bg-white/20 rounded-2xl flex items-center justify-center mx-auto mb-6">
-            <BookOpen className="w-10 h-10" />
-          </div>
+          <Image
+            src="/logo-256.png"
+            alt="CodeBattle With Ajay"
+            width={96}
+            height={96}
+            className="w-24 h-24 rounded-full mx-auto mb-6 shadow-lg bg-white"
+            priority
+          />
           <h1 className="text-4xl sm:text-5xl font-bold mb-4">
             About CodeBattle Learning
           </h1>

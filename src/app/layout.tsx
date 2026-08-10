@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
@@ -8,6 +8,13 @@ const inter = Inter({
   subsets: ["latin"],
   display: "swap",
 });
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  themeColor: "#2563eb",
+};
 
 export const metadata: Metadata = {
   title: "CodeBattle With Ajay - Master Dsa, FullStack Developement & Devops",
@@ -24,12 +31,14 @@ export const metadata: Metadata = {
     title: "CodeBattle With Ajay - Master Dsa, FullStack Developement & Devops",
     description: "Learn DevOps, Cloud Computing, and Programming through practical tutorials and real-world projects.",
     siteName: "CodeBattle Learning",
+    images: [{ url: "/logo.png", width: 1254, height: 1254, alt: "CodeBattle With Ajay" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "CodeBattle With Ajay - Master Dsa, FullStack Developement & Devops",
     description: "Learn DevOps, Cloud Computing, and Programming through practical tutorials and real-world projects.",
     creator: "@codebattle",
+    images: ["/logo.png"],
   },
 };
 
@@ -40,10 +49,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} bg-gray-50`}>
-        <div className="min-h-screen flex flex-col">
+      <body className={`${inter.className} bg-gray-50 antialiased`}>
+        <div className="min-h-[100dvh] flex flex-col overflow-x-clip">
           <Header />
-          <main className="flex-1">
+          <main className="flex-1 w-full min-w-0 pb-2">
             {children}
           </main>
           <Footer />

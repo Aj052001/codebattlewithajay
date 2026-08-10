@@ -1,5 +1,6 @@
+import Image from 'next/image';
 import Link from 'next/link';
-import { Youtube, Twitter, Github, Linkedin, BookOpen } from 'lucide-react';
+import { Youtube, Twitter, Github, Linkedin } from 'lucide-react';
 import { youtubeChannelData } from '@/data/courses';
 
 const Footer = () => {
@@ -8,15 +9,8 @@ const Footer = () => {
   const quickLinks = [
     { name: 'Home', href: '/' },
     { name: 'Courses', href: '/courses' },
-    { name: 'Blog', href: '/blog' },
+    { name: 'Mock Test', href: '/mock-test' },
     { name: 'About', href: '/about' },
-  ];
-
-  const categories = [
-    { name: 'DevOps & Automation', href: '/courses?category=devops-automation' },
-    { name: 'Cloud Computing', href: '/courses?category=cloud-computing' },
-    { name: 'Containerization', href: '/courses?category=containerization' },
-    { name: 'Programming', href: '/courses?category=programming-scripting' },
   ];
 
   const socialLinks = [
@@ -24,143 +18,75 @@ const Footer = () => {
       name: 'YouTube',
       href: youtubeChannelData.channelUrl,
       icon: Youtube,
-      color: 'hover:text-red-600',
+      color: 'hover:text-blue-600',
     },
     {
       name: 'Twitter',
-      href: 'https://twitter.com/codebattlewithajay', // Replace with your Twitter
+      href: 'https://twitter.com/codebattlewithajay',
       icon: Twitter,
-      color: 'hover:text-blue-400',
+      color: 'hover:text-blue-500',
     },
     {
       name: 'GitHub',
-      href: 'https://github.com/Aj052001/', // Replace with your GitHub
+      href: 'https://github.com/Aj052001/',
       icon: Github,
-      color: 'hover:text-gray-900',
+      color: 'hover:text-slate-900',
     },
     {
       name: 'LinkedIn',
-      href: 'https://www.linkedin.com/in/ajaysingh87/', // Replace with your LinkedIn
+      href: 'https://www.linkedin.com/in/ajaysingh87/',
       icon: Linkedin,
       color: 'hover:text-blue-600',
     },
   ];
 
   return (
-    <footer className="bg-gray-50 border-t">
+    <footer className="mt-auto shrink-0 bg-white border-t border-gray-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="py-12">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            {/* Brand section */}
-            <div className="col-span-1 md:col-span-2">
-              <div className="flex items-center space-x-2 mb-4">
-                <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
-                  <BookOpen className="w-6 h-6 text-white" />
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold text-gray-900">CodeBattle with ajay</h3>
-                  <p className="text-sm text-gray-600">Your Gateway to Programming Mastery</p>
-                </div>
-              </div>
-              <p className="text-gray-600 mb-6 max-w-md">
-               Learn DSA, Data Analytics, Fullstack Development, DevOps, Cloud Computing, and Programming through practical tutorials and real-world projects. Master the skills that matter in tech industry.
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 sm:gap-6 py-6 sm:py-8">
+          <div className="flex items-center gap-3 min-w-0">
+            <Image
+              src="/logo-128.png"
+              alt="CodeBattle With Ajay"
+              width={40}
+              height={40}
+              className="w-10 h-10 rounded-full shrink-0"
+            />
+            <div className="min-w-0">
+              <p className="text-base sm:text-lg font-semibold text-slate-800 truncate">
+                CodeBattle with Ajay
               </p>
-              
-              {/* Social Media Links */}
-              <div className="flex space-x-4">
-                {socialLinks.map((social) => (
-                  <Link
-                    key={social.name}
-                    href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`text-gray-400 ${social.color} transition-colors duration-200`}
-                    aria-label={social.name}
-                  >
-                    <social.icon className="w-6 h-6" />
-                  </Link>
-                ))}
-              </div>
+              <p className="text-sm text-slate-500">
+                © {currentYear} All rights reserved
+              </p>
             </div>
-
-            {/* Quick Links */}
-            <div>
-              <h3 className="text-sm font-semibold text-gray-900 tracking-wider uppercase mb-4">
-                Quick Links
-              </h3>
-              <ul className="space-y-2">
-                {quickLinks.map((link) => (
-                  <li key={link.name}>
-                    <Link
-                      href={link.href}
-                      className="text-gray-600 hover:text-blue-600 transition-colors duration-200"
-                    >
-                      {link.name}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Categories */}
-           <div>
-  <h3 className="text-sm font-semibold text-gray-900 tracking-wider uppercase mb-4">
-    Contact Details
-  </h3>
-  <ul className="space-y-2">
-    <li>
-      <span className="text-gray-600">Mobile: </span>
-      <a href="tel:+919079676928" className="text-blue-600 hover:underline">
-        +91 9079676928
-      </a>
-    </li>
-    <li>
-      <span className="text-gray-600">Email: </span>
-      <a href="mailto:ajays879687@gmail.com" className="text-blue-600 hover:underline">
-        ajays879687@gmail.com
-      </a>
-    </li>
-    <li>
-      <span className="text-gray-600">Instagram: </span>
-      <a href="https://instagram.com/codebattlewithajay" target="_blank" className="text-blue-600 hover:underline">
-        codebattlewithajay
-      </a>
-    </li>
-  </ul>
-</div>
-
           </div>
-        </div>
 
-        {/* Bottom section */}
-        <div className="border-t border-gray-200 py-6">
-          <div className="flex flex-col md:flex-row justify-center items-center">
-            <div className="flex items-center space-x-6 mb-4 md:mb-0">
-              <p className="text-sm text-gray-600">
-                © {currentYear} CodeBattle with ajay. All rights reserved.
-              </p>
-            </div>
-            
-            {/* <div className="flex items-center space-x-6">
+          <nav className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-base">
+            {quickLinks.map((link) => (
               <Link
-                href="/privacy"
-                className="text-sm text-gray-600 hover:text-blue-600 transition-colors duration-200"
+                key={link.name}
+                href={link.href}
+                className="text-slate-600 hover:text-blue-600 transition-colors duration-200"
               >
-                Privacy Policy
+                {link.name}
               </Link>
+            ))}
+          </nav>
+
+          <div className="flex items-center gap-4">
+            {socialLinks.map((social) => (
               <Link
-                href="/terms"
-                className="text-sm text-gray-600 hover:text-blue-600 transition-colors duration-200"
+                key={social.name}
+                href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`text-slate-400 ${social.color} transition-colors duration-200`}
+                aria-label={social.name}
               >
-                Terms of Service
+                <social.icon className="w-5 h-5" />
               </Link>
-              <Link
-                href="/disclaimer"
-                className="text-sm text-gray-600 hover:text-blue-600 transition-colors duration-200"
-              >
-                Disclaimer
-              </Link>
-            </div> */}
+            ))}
           </div>
         </div>
       </div>

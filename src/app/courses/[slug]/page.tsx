@@ -1,24 +1,20 @@
 import { notFound } from 'next/navigation';
-import { courses, tutorials } from '@/data/courses';
+import { courses as staticCourses, tutorials as staticTutorials } from '@/data/courses';
 import { generateSEO, generateCourseStructuredData } from '@/utils';
+import { fetchCourse, fetchTutorialsByCourseSlug } from '@/lib/api';
 import CoursePageClient from '@/components/features/CoursePageClient';
 
 interface CoursePageProps {
-  params: {
+  params: Promise<{
     slug: string;
-  };
-}
-
-export async function generateStaticParams() {
-  return courses.map((course) => ({
-    slug: course.slug,
-  }));
+  }>;
 }
 
 export async function generateMetadata({ params }: CoursePageProps) {
   const { slug } = await params;
-  const course = courses.find((c) => c.slug === slug);
-  
+  const apiCourse = await fetchCourse(slug).catch(() => null);
+  const course = apiCourse || staticCourses.find((c) => c.slug === slug);
+
   if (!course) {
     return {
       title: 'Course Not Found | CodeBattle Learning',
@@ -40,36 +36,41 @@ export async function generateMetadata({ params }: CoursePageProps) {
       course.difficulty,
       'free course',
       'tutorial',
-      'online learning'
+      'online learning',
     ],
   };
 }
 
 export default async function CoursePage({ params }: CoursePageProps) {
   const { slug } = await params;
-  const course = courses.find((c) => c.slug === slug);
+  const apiCourse = await fetchCourse(slug).catch(() => null);
+  const staticCourse = staticCourses.find((c) => c.slug === slug);
+  const course = apiCourse || staticCourse;
 
   if (!course) {
     notFound();
   }
 
-  // Get tutorials for this course
-  const courseTutorials = tutorials
-    .filter((t) => t.courseId === course.id)
-    .sort((a, b) => a.order - b.order);
+  let courseTutorials = await fetchTutorialsByCourseSlug(slug).catch(() => []);
+
+  // Fallback to local tutorial files if API has no lessons yet
+  if (!courseTutorials.length && staticCourse) {
+    courseTutorials = staticTutorials
+      .filter((t) => t.courseId === staticCourse.id)
+      .sort((a, b) => a.order - b.order);
+  }
 
   const structuredData = generateCourseStructuredData(course);
 
   return (
     <>
-      {/* Structured Data */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(structuredData),
         }}
       />
-      
+
       <CoursePageClient course={course} courseTutorials={courseTutorials} />
     </>
   );

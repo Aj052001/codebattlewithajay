@@ -139,12 +139,12 @@ export default function BlogPostClient({ blog, relatedBlogs }: BlogPostClientPro
             </div>
 
             {/* Title */}
-            <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4 leading-tight">
+            <h1 className="text-2xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 leading-tight">
               {blog.title}
             </h1>
 
             {/* Description */}
-            <p className="text-xl text-gray-600 mb-6 leading-relaxed">
+            <p className="text-base sm:text-xl text-gray-600 mb-6 leading-relaxed">
               {blog.description}
             </p>
 
@@ -173,9 +173,9 @@ export default function BlogPostClient({ blog, relatedBlogs }: BlogPostClientPro
           </div>
 
           {/* Blog Content */}
-          <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-8 mb-12">
+          <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-4 sm:p-6 lg:p-8 mb-8 sm:mb-12 overflow-hidden">
             <div 
-              className="prose prose-lg prose-blue max-w-none"
+              className="prose prose-base sm:prose-lg lg:prose-xl prose-blue max-w-none break-words leading-relaxed"
               dangerouslySetInnerHTML={{ __html: blog.content }}
             />
           </div>

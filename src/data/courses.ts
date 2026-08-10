@@ -4,6 +4,8 @@ import { reactTutorials } from '../tutorials/reactjs'
 import { backendTutorials } from '@/tutorials/backend';
 import { cssTutorials } from '@/tutorials/css';
 import { jsTutorials } from '@/tutorials/js';
+import { linuxTutorials } from '@/tutorials/linux';
+import { dockerTutorials } from '@/tutorials/docker';
 
 export const categories: Category[] = [
   {
@@ -149,6 +151,61 @@ export const courses: Course[] = [
   ],
   isPaid: false,
   featured: true
+},
+{
+  id: '6',
+  title: 'Linux Fundamentals for DevOps',
+  description:
+    'Zero → Senior DevOps Linux path — filesystem, text tools, permissions, processes, networking, systemd, bash scripting, SSH, security, and a full capstone lab before Docker.',
+  slug: 'linux-fundamentals-devops',
+  category: 'DevOps & Automation',
+  difficulty: 'Beginner',
+  duration: '20 hours',
+  thumbnail: '/images/courses/linux.jpg',
+  youtubePlaylistId: 'PLxxxxxx',
+  topics: [
+    'Introduction to Linux & Filesystem',
+    'Working with Files & Text Tools',
+    'File Permissions & Ownership',
+    'Linux Processes & Signals',
+    'Pipes, Redirection, Env Vars & Links',
+    'Users, Groups & sudo',
+    'Linux Networking for DevOps',
+    'Disk, Storage & Archives',
+    'Package Management',
+    'systemd, Logs & Cron',
+    'Bash Scripting for DevOps',
+    'SSH, Security & Troubleshooting',
+    'Senior DevOps Linux Capstone Lab'
+  ],
+  isPaid: false,
+  featured: true
+},
+{
+  id: '7',
+  title: 'Docker Fundamentals for DevOps',
+  description:
+    'Learn Docker from zero — containers, images, Dockerfile, volumes, networking, Compose, and production-ready practices for DevOps.',
+  slug: 'docker-fundamentals-devops',
+  category: 'DevOps & Automation',
+  difficulty: 'Beginner',
+  duration: '18 hours',
+  thumbnail: '/images/courses/docker.jpg',
+  youtubePlaylistId: 'PLxxxxxx',
+  topics: [
+    'Hello Docker',
+    'Images & Containers Basics',
+    'Dockerfile Fundamentals',
+    'Build, Tag & Push Images',
+    'Volumes & Bind Mounts',
+    'Docker Networking',
+    'Docker Compose',
+    'Multi-stage Builds & Best Practices',
+    'Docker for DevOps Capstone Lab'
+  ],
+  isPaid: false,
+  featured: true,
+  isNew: true
 }
 
 ];
@@ -209,8 +266,9 @@ export const tutorials: Tutorial[] = [
   ...cssTutorials,
   ...jsTutorials,
   ...reactTutorials,
-  ...backendTutorials
-
+  ...backendTutorials,
+  ...linuxTutorials,
+  ...dockerTutorials
 ];
 
 // console.log(tutorials.length)
@@ -223,7 +281,7 @@ export const youtubeChannelData = {
   channelName: 'CodeBattle with ajay',
   channelId: 'UCxxxxxx', // Replace with your channel ID
   channelUrl: 'https://www.youtube.com/@codebattlewithajay',
-  subscriberCount: '350+',
+  subscriberCount: '540+',
   videoCount: '80+',
   description: 'Learn Dsa, Fullstack Developement, and Devops through practical tutorials and real-world projects.'
 };

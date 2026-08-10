@@ -1,10 +1,10 @@
 import { MetadataRoute } from 'next';
 import { courses, featuredBlogs } from '@/data/courses';
+import { mockTests } from '@/data/mockTest';
 
 const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://codebattlewithajay.vercel.com';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  // Static pages
   const staticPages = [
     {
       url: baseUrl,
@@ -30,9 +30,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly' as const,
       priority: 0.5,
     },
+    {
+      url: `${baseUrl}/mock-test`,
+      lastModified: new Date(),
+      changeFrequency: 'daily' as const,
+      priority: 0.7,
+    },
   ];
 
-  // Course pages
   const coursePages = courses.map((course) => ({
     url: `${baseUrl}/courses/${course.slug}`,
     lastModified: new Date(),
@@ -40,7 +45,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  // Blog pages
   const blogPages = featuredBlogs.map((blog) => ({
     url: `${baseUrl}/blog/${blog.slug}`,
     lastModified: new Date(blog.publishedAt),
@@ -48,5 +52,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
-  return [...staticPages, ...coursePages, ...blogPages];
+  const mockTestPages = mockTests.map((test) => ({
+    url: `${baseUrl}/mock-test/${test.slug}`,
+    lastModified: new Date(test.publishedAt),
+    changeFrequency: 'weekly' as const,
+    priority: 0.65,
+  }));
+
+  return [...staticPages, ...coursePages, ...blogPages, ...mockTestPages];
 }
