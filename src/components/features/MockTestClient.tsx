@@ -14,6 +14,7 @@ type ReviewItem = {
   selectedIndex: number | null;
   correctIndex: number;
   isCorrect: boolean;
+  explanation?: string;
 };
 
 const TEST_DURATION_SECONDS = 60 * 60; // 60 minutes
@@ -87,6 +88,7 @@ export default function MockTestClient({ test, useApi = true }: MockTestClientPr
         selectedIndex,
         correctIndex: q.correctIndex,
         isCorrect,
+        explanation: q.explanation,
       };
     });
     const percent = Math.round((score / total) * 100);
@@ -286,6 +288,12 @@ export default function MockTestClient({ test, useApi = true }: MockTestClientPr
                     Correct: {q?.options[item.correctIndex]}
                   </p>
                 )}
+                {item.explanation ? (
+                  <p className="text-sm text-gray-600 mt-2 pt-2 border-t border-gray-200/80">
+                    <span className="font-medium text-gray-800">Explanation: </span>
+                    {item.explanation}
+                  </p>
+                ) : null}
               </div>
             );
           })}
