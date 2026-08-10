@@ -47,11 +47,6 @@ const nextConfig: NextConfig = {
   // Compress static assets
   compress: true,
   
-  // Enable experimental features for better performance
-  experimental: {
-    scrollRestoration: true,
-  },
-  
   // TypeScript configuration
   typescript: {
     ignoreBuildErrors: false,
@@ -61,17 +56,6 @@ const nextConfig: NextConfig = {
   eslint: {
     ignoreDuringBuilds: false,
   },
-  
-  // Optimize bundle analysis (optional)
-  // Uncomment the lines below to analyze bundle size
-  // webpack: (config, { isServer }) => {
-  //   if (!isServer) {
-  //     config.resolve.fallback = {
-  //       fs: false,
-  //     };
-  //   }
-  //   return config;
-  // },
 };
 
 export default nextConfig;

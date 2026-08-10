@@ -1,7 +1,9 @@
 import type { Course, BlogPost, Tutorial } from '@/types';
 import type { MockTest, MockQuestion } from '@/data/mockTest';
 
-const API_URL = (process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000').replace(/\/$/, '');
+const API_URL = (
+  process.env.NEXT_PUBLIC_API_URL || 'https://codebattlewithserver.vercel.app'
+).replace(/\/$/, '');
 
 type ApiResponse<T> = {
   success: boolean;
