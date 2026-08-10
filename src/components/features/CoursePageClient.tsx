@@ -53,7 +53,7 @@ export default function CoursePageClient({ course, courseTutorials }: CoursePage
           <BookOpen className="w-16 h-16 text-gray-400 mx-auto mb-4" />
           <h2 className="text-2xl font-bold text-gray-900 mb-2">No Tutorials Available</h2>
           <p className="text-gray-600 mb-6">
-            This course is still being prepared. Check back soon!
+            {course.title} is still being prepared. Check back soon!
           </p>
           <Link
             href="/courses"
@@ -166,6 +166,8 @@ export default function CoursePageClient({ course, courseTutorials }: CoursePage
               <div>
                 <div className="mb-4 sm:mb-6">
                   <div className="hidden lg:flex items-center gap-2 text-base text-gray-500 mb-2">
+                    <span className="font-medium text-blue-600">{course.title}</span>
+                    <span>•</span>
                     <span>
                       Tutorial {currentIndex + 1} of {courseTutorials.length}
                     </span>

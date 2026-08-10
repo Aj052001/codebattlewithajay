@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Link from 'next/link';
 import { 
   ArrowLeft, 
@@ -9,7 +9,6 @@ import {
   User, 
   Tag, 
   Share2, 
-  BookOpen,
   ChevronRight,
   Facebook,
   Twitter,
