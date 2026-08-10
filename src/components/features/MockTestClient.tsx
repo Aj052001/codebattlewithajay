@@ -1,8 +1,8 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
-import { CheckCircle2, XCircle, RotateCcw, ArrowRight, ClipboardList } from 'lucide-react';
+import { CheckCircle2, XCircle, RotateCcw, ArrowRight, ClipboardList, Clock } from 'lucide-react';
 import { MockTest, MOCK_TEST_PASS_PERCENT } from '@/data/mockTest';
 import { submitMockTest } from '@/lib/api';
 
@@ -14,8 +14,15 @@ type ReviewItem = {
   selectedIndex: number | null;
   correctIndex: number;
   isCorrect: boolean;
-  explanation?: string;
 };
+
+const TEST_DURATION_SECONDS = 60 * 60; // 60 minutes
+
+function formatTime(totalSeconds: number) {
+  const mins = Math.floor(totalSeconds / 60);
+  const secs = totalSeconds % 60;
+  return `${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
+}
 
 type MockTestClientProps = {
   test: MockTest & { passPercent?: number };
@@ -31,6 +38,7 @@ export default function MockTestClient({ test, useApi = true }: MockTestClientPr
     () => Array(questions.length).fill(null)
   );
   const [submitting, setSubmitting] = useState(false);
+  const [secondsLeft, setSecondsLeft] = useState(TEST_DURATION_SECONDS);
   const [result, setResult] = useState<{
     score: number;
     total: number;
@@ -40,6 +48,14 @@ export default function MockTestClient({ test, useApi = true }: MockTestClientPr
     review: ReviewItem[];
   } | null>(null);
   const [error, setError] = useState('');
+
+  const answersRef = useRef(answers);
+  const finishInFlightRef = useRef(false);
+  const submitOnTimeoutRef = useRef<() => void>(() => {});
+
+  useEffect(() => {
+    answersRef.current = answers;
+  }, [answers]);
 
   const total = questions.length;
   const selected = answers[current];
@@ -53,10 +69,13 @@ export default function MockTestClient({ test, useApi = true }: MockTestClientPr
     });
   };
 
-  const finishLocal = () => {
+  const finishLocal = (answerSnapshot?: (number | null)[]) => {
+    if (finishInFlightRef.current) return;
+    finishInFlightRef.current = true;
+    const finalAnswers = answerSnapshot ?? answersRef.current;
     let score = 0;
     const review = questions.map((q, index) => {
-      const selectedIndex = answers[index];
+      const selectedIndex = finalAnswers[index];
       const isCorrect =
         selectedIndex !== null &&
         q.correctIndex >= 0 &&
@@ -82,17 +101,21 @@ export default function MockTestClient({ test, useApi = true }: MockTestClientPr
     setPhase('result');
   };
 
-  const finishApi = async () => {
+  const finishApi = async (answerSnapshot?: (number | null)[]) => {
+    if (finishInFlightRef.current) return;
+    finishInFlightRef.current = true;
     setSubmitting(true);
     setError('');
+    const finalAnswers = answerSnapshot ?? answersRef.current;
     try {
-      const data = await submitMockTest(test.slug, answers);
+      const data = await submitMockTest(test.slug, finalAnswers);
       setResult(data);
       setPhase('result');
     } catch (err) {
       // Fallback to local scoring if API fails and answers exist locally
+      finishInFlightRef.current = false;
       if (questions.some((q) => q.correctIndex >= 0)) {
-        finishLocal();
+        finishLocal(finalAnswers);
       } else {
         setError(err instanceof Error ? err.message : 'Failed to submit test');
       }
@@ -101,14 +124,40 @@ export default function MockTestClient({ test, useApi = true }: MockTestClientPr
     }
   };
 
+  const submitTest = async (answerSnapshot?: (number | null)[]) => {
+    if (useApi) await finishApi(answerSnapshot);
+    else finishLocal(answerSnapshot);
+  };
+
+  submitOnTimeoutRef.current = () => {
+    void submitTest(answersRef.current);
+  };
+
+  useEffect(() => {
+    if (phase !== 'quiz') return;
+
+    setSecondsLeft(TEST_DURATION_SECONDS);
+    let remaining = TEST_DURATION_SECONDS;
+
+    const intervalId = window.setInterval(() => {
+      remaining -= 1;
+      setSecondsLeft(Math.max(remaining, 0));
+      if (remaining <= 0) {
+        window.clearInterval(intervalId);
+        submitOnTimeoutRef.current();
+      }
+    }, 1000);
+
+    return () => window.clearInterval(intervalId);
+  }, [phase]);
+
   const goNext = async () => {
     if (selected === null) return;
     if (current < total - 1) {
       setCurrent((c) => c + 1);
       return;
     }
-    if (useApi) await finishApi();
-    else finishLocal();
+    await submitTest();
   };
 
   const goPrev = () => {
@@ -120,6 +169,8 @@ export default function MockTestClient({ test, useApi = true }: MockTestClientPr
     setCurrent(0);
     setResult(null);
     setError('');
+    setSecondsLeft(TEST_DURATION_SECONDS);
+    finishInFlightRef.current = false;
     setPhase('intro');
   };
 
@@ -134,6 +185,9 @@ export default function MockTestClient({ test, useApi = true }: MockTestClientPr
         <p className="text-gray-600 mb-6 text-base sm:text-lg">{test.description}</p>
         <ul className="text-left bg-gray-50 rounded-xl p-5 mb-8 space-y-2 text-gray-700">
           <li>• {total} MCQ questions</li>
+          <li>
+            • Time limit: <strong>60 minutes</strong>
+          </li>
           <li>
             • Pass mark: <strong>{passMark}%</strong> ({Math.ceil((passMark / 100) * total)}/
             {total} correct)
@@ -241,15 +295,25 @@ export default function MockTestClient({ test, useApi = true }: MockTestClientPr
   }
 
   const progress = ((current + 1) / total) * 100;
+  const timerUrgent = secondsLeft <= 5 * 60;
 
   return (
     <div className="max-w-2xl mx-auto">
       <div className="mb-6">
-        <div className="flex items-center justify-between text-sm text-gray-600 mb-2">
+        <div className="flex items-center justify-between gap-3 text-sm text-gray-600 mb-2">
           <span>
             Question {current + 1} of {total}
           </span>
-          <span>{Math.round(progress)}%</span>
+          <div
+            className={`inline-flex items-center gap-1.5 font-mono text-base font-semibold tabular-nums ${
+              timerUrgent ? 'text-red-600' : 'text-gray-900'
+            }`}
+            aria-live="polite"
+            aria-label={`Time remaining ${formatTime(secondsLeft)}`}
+          >
+            <Clock className={`w-4 h-4 ${timerUrgent ? 'text-red-600' : 'text-gray-500'}`} />
+            {formatTime(secondsLeft)}
+          </div>
         </div>
         <div className="h-2 bg-gray-100 rounded-full overflow-hidden">
           <div
@@ -259,30 +323,45 @@ export default function MockTestClient({ test, useApi = true }: MockTestClientPr
         </div>
       </div>
 
-      <div className="bg-white border border-gray-200 rounded-2xl p-6 sm:p-8 shadow-sm">
+      {/* key forces a full remount per question so option DOM never reuses prior text/selection */}
+      <div
+        key={`quiz-card-${current}-${question.id}`}
+        className="bg-white border border-gray-200 rounded-2xl p-6 sm:p-8 shadow-sm"
+      >
         <h2 className="text-xl sm:text-2xl font-semibold text-gray-900 mb-6">
           {question.question}
         </h2>
 
-        <div className="space-y-3" key={`question-${current}-${question.id}`}>
+        <div className="space-y-3" role="radiogroup" aria-label={`Question ${current + 1}`}>
           {question.options.map((option, index) => {
-            const isSelected = selected === index;
+            const isSelected = answers[current] === index;
+            const optionId = `q${current}-opt${index}`;
             return (
-              <button
-                key={`q-${current}-opt-${index}`}
-                type="button"
-                onClick={() => selectOption(current, index)}
-                className={`w-full text-left px-4 py-3.5 rounded-xl border transition-colors ${
+              <label
+                key={optionId}
+                htmlFor={optionId}
+                className={`flex w-full cursor-pointer items-start gap-3 px-4 py-3.5 rounded-xl border transition-colors ${
                   isSelected
                     ? 'border-blue-600 bg-blue-50 text-blue-900'
                     : 'border-gray-200 hover:border-blue-300 hover:bg-gray-50 text-gray-800'
                 }`}
               >
-                <span className="font-medium mr-2">
-                  {String.fromCharCode(65 + index)}.
+                <input
+                  id={optionId}
+                  type="radio"
+                  className="sr-only"
+                  name={`question-${current}-${question.id}`}
+                  value={index}
+                  checked={isSelected}
+                  onChange={() => selectOption(current, index)}
+                />
+                <span className="min-w-0 text-left">
+                  <span className="font-medium mr-2">
+                    {String.fromCharCode(65 + index)}.
+                  </span>
+                  {option}
                 </span>
-                {option}
-              </button>
+              </label>
             );
           })}
         </div>
@@ -301,7 +380,7 @@ export default function MockTestClient({ test, useApi = true }: MockTestClientPr
           <button
             type="button"
             onClick={goNext}
-            disabled={selected === null || submitting}
+            disabled={answers[current] === null || submitting}
             className="inline-flex items-center px-5 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-semibold disabled:opacity-40 disabled:cursor-not-allowed"
           >
             {submitting ? 'Submitting...' : current === total - 1 ? 'Submit' : 'Next'}
