@@ -45,10 +45,10 @@ export default function MockTestClient({ test, useApi = true }: MockTestClientPr
   const selected = answers[current];
   const question = questions[current];
 
-  const selectOption = (optionIndex: number) => {
+  const selectOption = (questionIndex: number, optionIndex: number) => {
     setAnswers((prev) => {
       const next = [...prev];
-      next[current] = optionIndex;
+      next[questionIndex] = optionIndex;
       return next;
     });
   };
@@ -208,10 +208,10 @@ export default function MockTestClient({ test, useApi = true }: MockTestClientPr
         <div className="mt-8 space-y-4">
           <h3 className="text-lg font-semibold text-gray-900">Answer review</h3>
           {review.map((item, index) => {
-            const q = questions.find((x) => x.id === item.id) || questions[index];
+            const q = questions[index];
             return (
               <div
-                key={item.id}
+                key={`${test.slug}-review-${index}-${item.id}`}
                 className={`rounded-xl border p-4 ${
                   item.isCorrect ? 'border-green-200 bg-green-50/50' : 'border-red-200 bg-red-50/50'
                 }`}
@@ -264,14 +264,14 @@ export default function MockTestClient({ test, useApi = true }: MockTestClientPr
           {question.question}
         </h2>
 
-        <div className="space-y-3">
+        <div className="space-y-3" key={`question-${current}-${question.id}`}>
           {question.options.map((option, index) => {
             const isSelected = selected === index;
             return (
               <button
-                key={option}
+                key={`q-${current}-opt-${index}`}
                 type="button"
-                onClick={() => selectOption(index)}
+                onClick={() => selectOption(current, index)}
                 className={`w-full text-left px-4 py-3.5 rounded-xl border transition-colors ${
                   isSelected
                     ? 'border-blue-600 bg-blue-50 text-blue-900'
