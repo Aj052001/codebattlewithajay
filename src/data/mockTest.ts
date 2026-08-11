@@ -19,6 +19,7 @@ export type MockTest = {
 };
 
 export const MOCK_TEST_PASS_PERCENT = 60;
+export const MOCK_TEST_DURATION = '60 min';
 export const MOCK_TEST_DAILY_TIME = '9:00 PM';
 
 export const mockTests: MockTest[] = [
@@ -31,7 +32,7 @@ export const mockTests: MockTest[] = [
     topic: 'Docker',
     difficulty: 'Beginner',
     publishedAt: '2026-08-09T21:00:00+05:30',
-    duration: '10 min',
+    duration: '60 min',
     questions: [
       {
         id: 1,
@@ -89,7 +90,7 @@ export const mockTests: MockTest[] = [
     topic: 'Linux',
     difficulty: 'Beginner',
     publishedAt: '2026-08-10T21:00:00+05:30',
-    duration: '10 min',
+    duration: '60 min',
     questions: [
       {
         id: 1,
@@ -137,7 +138,7 @@ export const mockTests: MockTest[] = [
     topic: 'HTML',
     difficulty: 'Beginner',
     publishedAt: '2026-08-11T21:00:00+05:30',
-    duration: '10 min',
+    duration: '60 min',
     questions: [
       {
         id: 1,
@@ -185,7 +186,7 @@ export const mockTests: MockTest[] = [
     topic: 'JavaScript',
     difficulty: 'Beginner',
     publishedAt: '2026-08-12T21:00:00+05:30',
-    duration: '10 min',
+    duration: '60 min',
     questions: [
       {
         id: 1,

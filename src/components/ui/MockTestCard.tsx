@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { Clock, HelpCircle, ArrowRight, CalendarClock } from 'lucide-react';
-import { MockTest, MOCK_TEST_PASS_PERCENT } from '@/data/mockTest';
+import { MockTest, MOCK_TEST_PASS_PERCENT, MOCK_TEST_DURATION } from '@/data/mockTest';
 
 interface MockTestCardProps {
   test: MockTest;
@@ -51,7 +51,7 @@ export default function MockTestCard({ test }: MockTestCardProps) {
           </span>
           <span className="inline-flex items-center">
             <Clock className="w-4 h-4 mr-1.5" />
-            {test.duration}
+            {MOCK_TEST_DURATION}
           </span>
           <span className="inline-flex items-center">
             <CalendarClock className="w-4 h-4 mr-1.5" />

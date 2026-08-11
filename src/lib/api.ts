@@ -136,7 +136,7 @@ export function mapMockTest(raw: ApiRecord): MockTest & { passPercent?: number; 
     topic: String(raw.topic || ''),
     difficulty: asDifficulty(raw.difficulty),
     publishedAt: String(raw.publishedAt || new Date().toISOString()),
-    duration: String(raw.duration || '60 min'),
+    duration: String(raw.duration && raw.duration !== '10 min' ? raw.duration : '60 min'),
     questions,
     passPercent: typeof raw.passPercent === 'number' ? raw.passPercent : 60,
     _id: raw._id ? String(raw._id) : undefined,
