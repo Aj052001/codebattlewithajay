@@ -60,6 +60,62 @@ export const categories: Category[] = [
 
 
 
+export const courses: Course[] = [
+    {
+    id: '1',
+    title: 'HTML Fundamentals',
+    description: 'Learn the building blocks of the web with HTML. Create structured web pages and understand semantic tags.',
+    slug: 'html-fundamentals',
+    category: 'Fullstack Development',
+    difficulty: 'Beginner',
+    duration: '5 hours',
+    thumbnail: '/images/courses/html.jpg',
+    youtubePlaylistId: 'PLxxxxxx',
+    topics: ['HTML Basics', 'Elements & Tags', 'Forms', 'Tables', 'Semantic HTML'],
+    isPaid: false,
+    featured: true
+  },
+  {
+    id: '2',
+    title: 'CSS Styling Mastery',
+    description: 'Master CSS to make beautiful and responsive web pages. Learn layouts, animations, and advanced styling techniques.',
+    slug: 'css-styling-mastery',
+    category: 'Fullstack Development',
+    difficulty: 'Beginner',
+    duration: '15 hours',
+    thumbnail: '/images/courses/css.jpg',
+    youtubePlaylistId: 'PL49awUNfft2JXjskBOK3KVqUf4HsxyT_q',
+    topics: ['CSS Basics', 'Selectors', 'Flexbox', 'Grid', 'Animations', 'Responsive Design'],
+    isPaid: false,
+    featured: true
+  },
+  {
+  id: '3',
+  title: 'React.js',
+  description:
+    'Master React.js — the powerful JavaScript library for building modern, dynamic, and responsive user interfaces. Learn components, props, state, hooks, and routing from scratch.',
+  slug: 'reactjs-fundamentals',
+  category: 'Frontend Development',
+  difficulty: 'Intermediate',
+  duration: '20 hours',
+  thumbnail: '/images/courses/reactjs.jpg',
+  youtubePlaylistId: 'PLxxxxxx', // replace with your actual React playlist ID
+  topics: [
+    'Introduction to React.js',
+    'JSX & Components',
+    'Props and State',
+    'Handling Events',
+    'React Hooks (useState, useEffect)',
+    'React Router DOM',
+    'Project: Build a React App'
+  ],
+  isPaid: false,
+  featured: true
+}
+
+];
+
+
 
 
 
