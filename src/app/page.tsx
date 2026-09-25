@@ -91,14 +91,6 @@ export default async function Home() {
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Link>
 
-              <Link
-                href="/mock-test"
-                className="inline-flex items-center justify-center bg-white hover:bg-blue-50 text-blue-700 border border-blue-200 font-semibold px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl text-base sm:text-lg transition-colors shadow-sm w-full sm:w-auto"
-              >
-                <ClipboardList className="w-5 h-5 mr-2" />
-                Take Mock Test
-                <ArrowRight className="w-5 h-5 ml-2" />
-              </Link>
 
               <Link
                 href={youtubeChannelData.channelUrl}
@@ -143,37 +135,6 @@ export default async function Home() {
         </div>
       </section>
 
-      <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-b from-slate-50 to-blue-50/40">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center mb-8 sm:mb-12 gap-4">
-            <div>
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-900 mb-2 sm:mb-4">
-                Daily Mock Tests
-              </h2>
-              <p className="text-base sm:text-xl text-slate-600 mb-3">
-                Practice with 5 MCQs — pass with {MOCK_TEST_PASS_PERCENT}%
-              </p>
-              <div className="inline-flex items-center gap-2 bg-white text-blue-800 border border-blue-100 px-3 py-1.5 rounded-full text-sm font-medium shadow-sm">
-                <Clock className="w-4 h-4 shrink-0 text-blue-600" />
-                New test every day at {MOCK_TEST_DAILY_TIME}
-              </div>
-            </div>
-            <Link
-              href="/mock-test"
-              className="inline-flex items-center text-blue-600 hover:text-blue-700 font-semibold transition-colors"
-            >
-              View All Tests
-              <ArrowRight className="w-5 h-5 ml-2" />
-            </Link>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-8">
-            {latestMockTests.map((test) => (
-              <MockTestCard key={test.id} test={test} />
-            ))}
-          </div>
-        </div>
-      </section>
 
       <section className="py-12 sm:py-16 lg:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -229,7 +190,7 @@ export default async function Home() {
             Ready to Start Your Learning Journey?
           </h2>
           <p className="text-base sm:text-xl text-slate-600 mb-6 sm:mb-8 max-w-2xl mx-auto">
-            Courses, daily mock tests, and free YouTube lessons — pick a path and start today.
+            Courses, and free YouTube lessons — pick a path and start today.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-stretch sm:items-center">
             <Link
@@ -239,13 +200,7 @@ export default async function Home() {
               <BookOpen className="w-5 h-5 mr-2" />
               Browse Courses
             </Link>
-            <Link
-              href="/mock-test"
-              className="inline-flex items-center justify-center bg-white hover:bg-blue-50 text-blue-700 border border-blue-200 font-bold px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl text-base sm:text-lg transition-colors"
-            >
-              <ClipboardList className="w-5 h-5 mr-2" />
-              Take Mock Test
-            </Link>
+          
             <Link
               href={youtubeChannelData.channelUrl}
               target="_blank"
